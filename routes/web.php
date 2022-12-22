@@ -51,3 +51,24 @@ Route::post('edulevels', 'App\Http\Controllers\DataController@addProcess');
 Route::get('edulevels/edit/{id}', 'App\Http\Controllers\DataController@edit');
 Route::patch('edulevels/{id}', 'App\Http\Controllers\DataController@editProcess');
 Route::delete('edulevels/{id}', 'App\Http\Controllers\DataController@delete');
+
+Route::get('pengeluaran', 'App\Http\Controllers\PengeluaranController@data');
+Route::get('pengeluaran/add', 'App\Http\Controllers\PengeluaranController@add');
+Route::post('pengeluaran', 'App\Http\Controllers\PengeluaranController@addProcess');
+Route::get('pengeluaran/edit/{id}', 'App\Http\Controllers\PengeluaranController@edit');
+Route::patch('pengeluaran/{id}', 'App\Http\Controllers\PengeluaranController@editProcess');
+Route::delete('pengeluaran/{id}', 'App\Http\Controllers\PengeluaranController@delete');
+
+Route::get('pembelian', 'App\Http\Controllers\PembelianController@data');
+Route::get('pembelian/add', 'App\Http\Controllers\PembelianController@add');
+Route::post('pembelian', 'App\Http\Controllers\PembelianController@addProcess');
+Route::get('pembelian/edit/{id}', 'App\Http\Controllers\PembelianController@edit');
+Route::patch('pembelian/{id}', 'App\Http\Controllers\PembelianController@editProcess');
+Route::delete('pembelian/{id}', 'App\Http\Controllers\PembelianController@delete');
+
+Route::get('penjualan', 'App\Http\Controllers\PenjualanController@data');
+Route::get('penjualan/add', 'App\Http\Controllers\PenjualanController@add');
+Route::post('penjualan', 'App\Http\Controllers\PenjualanController@addProcess');
+Route::get('penjualan/edit/{id}', 'App\Http\Controllers\PenjualanController@edit');
+Route::patch('penjualan/{id}', 'App\Http\Controllers\PenjualanController@editProcess');
+Route::delete('penjualan/{id}', 'App\Http\Controllers\PenjualanController@delete');
