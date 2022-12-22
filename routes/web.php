@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +53,15 @@ Route::post('edulevels', 'App\Http\Controllers\DataController@addProcess');
 Route::get('edulevels/edit/{id}', 'App\Http\Controllers\DataController@edit');
 Route::patch('edulevels/{id}', 'App\Http\Controllers\DataController@editProcess');
 Route::delete('edulevels/{id}', 'App\Http\Controllers\DataController@delete');
+
+Route::get('kategori/kategori', [KategoriController::class, 'index'])->name('kategori');
+Route::get('kategori/kategori-add', [KategoriController::class, 'add'])->name('kategori-add');
+Route::post('kategoris', [KategoriController::class,'addProcess']);
+Route::get('kategori/kategori-edit/{id}',[KategoriController::class,'edit']);
+Route::patch('kategori/{id}', [KategoriController::class,'editProcess']);
+Route::delete('kategori/{id}',[KategoriController::class,'delete']);
+
+Route::get('produk/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('produk/produk-add', [ProdukController::class, 'add'])->name('produk-add');
+Route::post('produks', [KategoriController::class,'addProcess']);
+
