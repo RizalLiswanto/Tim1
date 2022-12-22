@@ -27,7 +27,7 @@
 <div class="content mt-3">
 
     <div class="animated fadeIn">
-            Gue Padil
+
     </div>
         
 </div> <!-- .content -->
