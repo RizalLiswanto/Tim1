@@ -75,8 +75,8 @@
                                 <td>{{ $item->stok }}</td>
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
-                                    <a href="{{ url ('produk/produk-edit') }}" class="btn btn-primary btn-sm">edit</a>
-                                    <form action="{{ url('kategori')}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                    <a href="{{url('produk/produk-edit',$item->id) }}" class="btn btn-primary btn-sm">edit</a>
+                                    <form action="{{ url('produk',$item->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger btn-sm">Delete</button>

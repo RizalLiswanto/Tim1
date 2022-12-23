@@ -64,6 +64,9 @@ Route::delete('kategori/{id}',[KategoriController::class,'delete']);
 Route::get('produk/produk', [ProdukController::class, 'index'])->name('produk');
 Route::get('produk/produk-add', [ProdukController::class, 'add'])->name('produk-add');
 Route::post('produks', [ProdukController::class,'addProcess']);
+Route::get('produk/produk-edit/{id}',[ProdukController::class,'edit']);
+Route::patch('produk/{id}', [ProdukController::class,'editProcess']);
+Route::delete('produk/{id}',[produkController::class,'delete']);
 
 Route::get('pengeluaran', 'App\Http\Controllers\PengeluaranController@data');
 Route::get('pengeluaran/add', 'App\Http\Controllers\PengeluaranController@add');

@@ -35,7 +35,7 @@
                     <strong>Tambah Kategori</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="" class="btn btn-secondary btn-sm">
+                    <a href="{{url('kategori/kategori')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>

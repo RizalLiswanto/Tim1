@@ -35,7 +35,7 @@
                     <strong>Tambah Product</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('produk/produk')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -50,17 +50,16 @@
                                 <input type="text" name="nama_produk" class="form-control" autofocus required>
                             </div>
                             
-                            
-                            <div class="form-group">
-                                <select name="kategori_id" id="">
-                                    <option value="disabled value">Pilih kategori</option>
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="kategori_id" id="select" class="form-control">
+                                        <option value="disabled value">Pilih kategori</option>
                                 @foreach ($kate as $item)
                                     <option value="{{$item->id}}">{{ $item->kategori }}</option>
                                 @endforeach
-                            </select>
-                           
-                            </div> 
-                            
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label>Merk</label>
                                 <input type="text" name="merk" class="form-control" autofocus required>

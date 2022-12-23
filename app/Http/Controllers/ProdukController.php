@@ -34,24 +34,31 @@ class ProdukController extends Controller
         ]);
         return redirect('produk/produk')->with('status', 'produck Berhasil ditambah!');
     }
-    // public function edit($id)
-    // {
-    //     $kategori = DB::table('kategori')->where('id', $id)->first();
-    //     return view('kategori/kategori-edit', compact('kategori'));
+    public function edit($id)
+    {
+        $kate=kategori::all();
+        $data = produk::with('kategori')->findorfail($id);
+        return view('produk/produk-edit', compact('data','kate'));
     
-    // }
-    // public function editProcess(Request $request, $id)
-    // {
-    //     DB::table('kategori')->where('id', $id)
-    //         ->update([
-    //             'kategori' => $request->kategori
-    //         ]);
-    //         return redirect('kategori/kategori')->with('status', 'kategori Berhasil diedit!');
-    // }
+    }
+    public function editProcess(Request $request, $id)
+    {
+        DB::table('produk')->where('id', $id)
+            ->update([
+                'nama_produk' => $request->nama_produk,
+                'kategori_id'=> $request->kategori_id,
+                'merk'=>$request->merk,
+                'harga_jual'=>$request->harga_jual,
+                'harga_beli'=>$request->harga_beli,
+                'stok'=>$request->stok,
+                
+            ]);
+            return redirect('produk/produk')->with('status', 'Produk Berhasil diedit!');
+    }
 
-    // public function delete($id)
-    // {
-    //     DB::table('kategori')->where('id', $id)->delete();
-    //     return redirect('kategori/kategori')->with('status', 'Kategori Berhasil dihapus!');
-    // }
+    public function delete($id)
+    {
+        DB::table('produk')->where('id', $id)->delete();
+        return redirect('produk/produk')->with('status', 'Kategori Berhasil dihapus!');
+    }
 }
