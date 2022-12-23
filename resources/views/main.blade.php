@@ -88,6 +88,12 @@
                         <a href="{{ url('penjualan')}}"> <i class="menu-icon fa fa-dashboard"></i>Penjualan </a>
                     </li>
                     <li class="active">
+                        <a href="{{('/kategori/kategori')}}"> <i class="menu-icon fa fa-dashboard"></i>Kategori </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{('/produk/produk')}}"> <i class="menu-icon fa fa-dashboard"></i>Product </a>
+                    </li>
+                    <li class="active">
                         <a href="{{ route('logout') }}"> <i class="menu-icon fa fa-dashboard"></i>Logout </a>
                     </li>
 
