@@ -43,7 +43,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ '/produks' }}" method="POST">
+                        <form action="{{ url('produks') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Product</label>
@@ -52,11 +52,10 @@
                             
                             
                             <div class="form-group">
-                               
                                 <select name="kategori_id" id="">
-                                <option value="disabled value">Pilih kategori</option>
+                                    <option value="disabled value">Pilih kategori</option>
                                 @foreach ($kate as $item)
-                                <option value="{{$item->id}}">{{ $item->kategori }}</option>
+                                    <option value="{{$item->id}}">{{ $item->kategori }}</option>
                                 @endforeach
                             </select>
                            
