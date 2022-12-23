@@ -79,7 +79,13 @@
                         <a href="{{ url('edulevels')}}"> <i class="menu-icon fa fa-dashboard"></i>Data </a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('jenjang')}}"> <i class="menu-icon fa fa-dashboard"></i>Jenjang </a>
+                        <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-dashboard"></i>Pengeluaran </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('pembelian')}}"> <i class="menu-icon fa fa-dashboard"></i>Pembelian </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('penjualan')}}"> <i class="menu-icon fa fa-dashboard"></i>Penjualan </a>
                     </li>
                     <li class="active">
                         <a href="{{('/kategori/kategori')}}"> <i class="menu-icon fa fa-dashboard"></i>Kategori </a>
