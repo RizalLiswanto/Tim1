@@ -23,6 +23,8 @@ class ProdukController extends Controller
     }
     public function addProcess(Request $request)
     {
+        $kategori_id = $request->get('kategori_id');
+
         DB::table('produk')->insert([
             'nama_produk' => $request->nama_produk,
             'kategori_id'=> $request->kategori_id,
