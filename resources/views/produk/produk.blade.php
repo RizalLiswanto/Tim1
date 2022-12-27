@@ -53,6 +53,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Product</th>
+                            <th>Kode Barang</th>
                             <th>Kategori</th>
                             <th>Merk</th>
                             <th>Harga Jual</th>
@@ -68,6 +69,7 @@
                             <tr> 
                                 <td>{{  $loop->iteration  }}</td>
                                 <td>{{ $item->nama_produk }}</td>
+                                <td>{{ $item->kode }}</td>
                                 <td>{{ $item->kategori->kategori }}</td>
                                 <td>{{ $item->merk }}</td>
                                 <td>{{ $item->harga_jual }}</td>

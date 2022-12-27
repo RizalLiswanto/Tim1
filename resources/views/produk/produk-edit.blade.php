@@ -49,8 +49,10 @@
                                 <label>Nama Product</label>
                                 <input type="text" name="nama_produk" value="{{ $data->nama_produk ?? 'nama_produk'}}"class="form-control" autofocus required>
                             </div>
-                            
-                            
+                            <div class="form-group">
+                                <label>Kode Barang</label>
+                                <input type="text" name="kode" value="{{ $data->kode ?? 'kode'}}"class="form-control" autofocus required>
+                            </div>
                             <div class="form-group">
                                 <select name="kategori_id" id="">
                               

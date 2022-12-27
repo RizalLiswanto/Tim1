@@ -49,7 +49,10 @@
                                 <label>Nama Product</label>
                                 <input type="text" name="nama_produk" class="form-control" autofocus required>
                             </div>
-                            
+                            <div class="form-group">
+                                <label>Kode Barang</label>
+                                <input type="text" name="kode" class="form-control" autofocus required>
+                            </div>
                             <div class="row form-group">
                                 <div class="col-12 col-md-9">
                                     <select name="kategori_id" id="select" class="form-control">

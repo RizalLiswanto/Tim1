@@ -25,6 +25,7 @@ class ProdukController extends Controller
     {
         DB::table('produk')->insert([
             'nama_produk' => $request->nama_produk,
+            'kode'=> $request->kode,
             'kategori_id'=> $request->kategori_id,
             'merk'=>$request->merk,
             'harga_jual'=>$request->harga_jual,
@@ -46,6 +47,7 @@ class ProdukController extends Controller
         DB::table('produk')->where('id', $id)
             ->update([
                 'nama_produk' => $request->nama_produk,
+                'kode'=> $request->kode,
                 'kategori_id'=> $request->kategori_id,
                 'merk'=>$request->merk,
                 'harga_jual'=>$request->harga_jual,

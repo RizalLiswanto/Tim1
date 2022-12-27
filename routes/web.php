@@ -47,13 +47,6 @@ Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('edulevels', 'App\Http\Controllers\DataController@data');
-Route::get('edulevels/add', 'App\Http\Controllers\DataController@add');
-Route::post('edulevels', 'App\Http\Controllers\DataController@addProcess');
-Route::get('edulevels/edit/{id}', 'App\Http\Controllers\DataController@edit');
-Route::patch('edulevels/{id}', 'App\Http\Controllers\DataController@editProcess');
-Route::delete('edulevels/{id}', 'App\Http\Controllers\DataController@delete');
-
 Route::get('kategori/kategori', [KategoriController::class, 'index'])->name('kategori');
 Route::get('kategori/kategori-add', [KategoriController::class, 'add'])->name('kategori-add');
 Route::post('kategoris', [KategoriController::class,'addProcess']);
