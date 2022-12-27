@@ -66,8 +66,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./">Latihan</a>
-                <a class="navbar-brand hidden" href="./">L</a>
+                <a class="navbar-brand" href="{{ url('home')}}">POS Sederhana</a>
+                <a class="navbar-brand hidden" href="">FHR</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -76,20 +76,22 @@
                         <a href="{{ url('home')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{ url('pembelian')}}"> <i class="menu-icon fa fa-bold"></i>Pembelian </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{ url('penjualan')}}"> <i class="menu-icon fa fa-money"></i>Barang Masuk</a>
-                    </li>
-                    <li class="active">
                         <a href="{{('/kategori/kategori')}}"> <i class="menu-icon fa fa-tasks"></i>Kategori </a>
                     </li>
                     <li class="active">
                         <a href="{{('/produk/produk')}}"> <i class="menu-icon fa fa-truck"></i>Product </a>
                     </li>
+                    <li class="active">
+                        <a href="{{ url('Barang-masuk/Barang-masuk')}}"> <i class="menu-icon fa fa-money"></i>Barang Masuk</a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('pembelian')}}"> <i class="menu-icon fa fa-bold"></i>Pembelian </a>
+                    </li>
+                   
+                    
                    
 
                 

@@ -43,7 +43,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ url('produks'), $data->id}}" method="POST">
+                        <form action="{{ url('produk', $data->id)}}" method="POST">
+                            @method('patch')
                             @csrf
                             <div class="form-group">
                                 <label>Nama Product</label>
@@ -53,17 +54,16 @@
                                 <label>Kode Barang</label>
                                 <input type="text" name="kode" value="{{ $data->kode ?? 'kode'}}"class="form-control" autofocus required>
                             </div>
-                            <div class="form-group">
-                                <select name="kategori_id" id="">
-                              
-                                    <option value="{{ $data->kategori_id ?? 'kategori_id'}}">{{ $data->kategori->kategori}}</option>
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="kategori_id" id="select" class="form-control">
+                                        <option value="{{ $data->kategori_id ?? 'kategori_id'}}">{{ $data->kategori->kategori}}</option>
                                 @foreach ($kate as $item)
                                     <option value="{{$item->id}}">{{ $item->kategori }}</option>
                                 @endforeach
-                            </select>
-                           
-                            </div> 
-                            
+                                    </select>
+                                </div>
+                            </div>        
                             <div class="form-group">
                                 <label>Merk</label>
                                 <input type="text" name="merk" value="{{ $data->merk ?? 'merk'}}" class="form-control" autofocus required>

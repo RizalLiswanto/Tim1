@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
@@ -75,9 +76,11 @@ Route::get('pembelian/edit/{id}', 'App\Http\Controllers\PembelianController@edit
 Route::patch('pembelian/{id}', 'App\Http\Controllers\PembelianController@editProcess');
 Route::delete('pembelian/{id}', 'App\Http\Controllers\PembelianController@delete');
 
-Route::get('penjualan', 'App\Http\Controllers\PenjualanController@data');
-Route::get('penjualan/add', 'App\Http\Controllers\PenjualanController@add');
-Route::post('penjualan', 'App\Http\Controllers\PenjualanController@addProcess');
-Route::get('penjualan/edit/{id}', 'App\Http\Controllers\PenjualanController@edit');
-Route::patch('penjualan/{id}', 'App\Http\Controllers\PenjualanController@editProcess');
-Route::delete('penjualan/{id}', 'App\Http\Controllers\PenjualanController@delete');
+Route::get('Barang-masuk/Barang-masuk', [BarangmasukController::class, 'index'])->name('produk');
+Route::get('Barang-masuk/Barang-masuk-add', [BarangmasukController::class, 'add'])->name('produk-add');
+Route::post('Barang-masuks', [BarangmasukController::class,'addProcess']);
+Route::get('Barang-masuk/Barang-masuk-edit/{id}',[BarangmasukController::class,'edit']);
+Route::patch('Barang-masuk/{id}', [BarangmasukController::class,'editProcess']);
+Route::delete('Barang-masuk/{id}',[BarangmasukController::class,'delete']);
+
+
