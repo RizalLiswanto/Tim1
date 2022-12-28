@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Penjualan</h1>
+                <h1>Barang masuk</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Penjualan</li>
+                    <li class="active">Barang masuk</li>
                 </ol>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Tambah Penjualan</strong>
+                    <strong>Tambah Barang masuk</strong>
                 </div>
                 <div class="pull-right">
                     <a href="{{ url('Barang-masuks')}}" class="btn btn-secondary btn-sm">
@@ -50,16 +50,31 @@
                                 <input type="date" name="tanggal_barang" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Nama Produk</label>
-                                <input type="text" name="nama_produk" class="form-control" autofocus required>
+                                
+                                @foreach ($pro as $item)
+                                <input type="hidden" name="kode_id" class="form-control" autofocus required value="{{$item->id}}">
+                                @endforeach
                             </div>
-                            <div class="form-group">
-                                <label>Kode Barang</label>
-                                <input type="text" name="kode" class="form-control" autofocus required>
+                           
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="produk_id" id="select" class="form-control">
+                                        <option value="disabled value">Pilih kategori</option>
+                                @foreach ($pro as $item)
+                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                                    </select>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <input type="text" name="kategori" class="form-control" autofocus required>
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="kategori_id" id="select" class="form-control">
+                                        <option value="disabled value">Pilih kategori</option>
+                                @foreach ($kate as $item)
+                                    <option value="{{$item->id}}">{{ $item->kategori }}</option>
+                                @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Merk</label>

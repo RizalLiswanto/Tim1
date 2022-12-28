@@ -16,4 +16,10 @@ class produk extends Model
     public function kategori(){
         return $this->belongsTo(kategori::class);
     }
+
+    public function Barangmasuk(){
+        return $this->hasOne(Barangmasuk::class);
+    }
+
+   
 }

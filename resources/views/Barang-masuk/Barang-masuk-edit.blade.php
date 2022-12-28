@@ -50,17 +50,29 @@
                                 <label>Tanggal Barang</label>
                                 <input type="date" name="tanggal_barang" class="form-control" autofocus required value="{{ $data->tanggal_barang ?? 'tanggal_barang'}}">
                             </div>
-                            <div class="form-group">
-                                <label>Nama Produk</label>
-                                <input type="text" name="nama_produk" class="form-control" autofocus required value="{{ $data->nama_produk ?? 'nama_produk'}}">
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="produk_id" id="select" class="form-control">
+                                        <option value="{{ $data->produk_id ?? 'produk_id'}}">{{ $data->produk->nama_produk}}</option>
+                                @foreach ($pro as $item)
+                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Kode Barang</label>
                                 <input type="text" name="kode" class="form-control" autofocus required value="{{ $data->kode ?? 'kode'}}">
                             </div>
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <input type="text" name="kategori" class="form-control" autofocus required value="{{ $data->kategori ?? 'kategori'}}">
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="kategori_id" id="select" class="form-control">
+                                        <option value="{{ $data->kategori_id ?? 'kategori_id'}}">{{ $data->kategori->kategori}}</option>
+                                @foreach ($kate as $item)
+                                    <option value="{{$item->id}}">{{ $item->kategori }}</option>
+                                @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Merk</label>
