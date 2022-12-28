@@ -46,24 +46,32 @@
                         <form action="{{ url('pembelian')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>ID Supplier</label>
-                                <input type="text" name="id_supplier" class="form-control" autofocus required>
+                                <label>Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Total Item</label>
-                                <input type="text" name="total_item" class="form-control" autofocus required>
+                                <label>Kode</label>
+                                <input type="text" name="kode" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Total Harga</label>
-                                <input type="text" name="total_harga" class="form-control" autofocus required>
+                                <label>Nama Supplier</label>
+                                <input type="text" name="nama_supplier" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Diskon</label>
-                                <input type="text" name="diskon" class="form-control" autofocus required>
+                                <label>Kategori</label>
+                                <input type="text" name="kategori_produk" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Bayar</label>
-                                <input type="text" name="bayar" class="form-control" autofocus required>
+                                <label>Produk</label>
+                                <input type="text" name="nama_produk" class="form-control" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah</label>
+                                <input type="number" name="jumlah" class="form-control" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="number" name="harga" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

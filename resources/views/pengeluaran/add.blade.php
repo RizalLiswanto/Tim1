@@ -46,12 +46,25 @@
                         <form action="{{ url('pengeluaran')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>Deskripsi</label>
-                                <input type="text" name="deskripsi" class="form-control" autofocus required>
+                                <label>Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control" autofocus required>
+                            </div>
+                            <div class="row form-group">
+                                
+                                <div class="col-12 col-md-9">
+                                    <label>Pilih Produk</label>
+                                    <select name="produk_id" id="select" class="form-control">
+                                    @foreach ($pro as $item)
+                                        <option value="disabled value" hidden>Pilih Produk</option>
+                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                            </select>
+                                <input type="hidden" value="{{ $item->stok }}" name="stok">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label>Nominal</label>
-                                <<input type="text" name="nominal" class="form-control" autofocus required>
+                                <label>Jumlah</label>
+                                <input type="number" name="jumlah" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

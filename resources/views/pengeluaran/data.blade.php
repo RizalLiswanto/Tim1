@@ -52,30 +52,43 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th>Tanggal</th>
+                            <th>Kode</th>
+                            <th>Kategori</th>
+                            <th>Produk</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Total</th>
                             @if (auth()->user()->level == "1")
-                            <th></th>
+                            <th>Action</th>
                             @endif
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pengeluaran as $item)
+                        @foreach ($pengeluaran as $item )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->deskripsi }}</td>
-                                <td>{{ $item->nominal }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->produk->kode }}</td>
+                                <td>{{ $item->produk->kategori->kategori }}</td>
+                                <td>{{ $item->produk->nama_produk }}</td>
+                                <td>{{ $item->produk->harga_jual }}</td>
+                                <td>{{ $item->jumlah }}</td>
+                                <td>{{ $item->jumlah * $item->produk->harga_jual }}</td>
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
-                                    <a href="{{ url('pengeluaran/edit', $item->id_pengeluaran)}}" class="btn btn-primary btn-sm">edit</a>
-                                    <form action="{{ url('pengeluaran', $item->id_pengeluaran)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                    <a href="{{ url('pengeluaran/edit', $item->id)}}" class="btn btn-primary btn-sm">edit</a>
+                                    <form action="{{ url('pengeluaran', $item->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
+                                        <input type="hidden" name="produk_id" value="{{ $item->produk_id }}">
+                                        <input type="hidden" name="jumlah" value="{{ $item->jumlah }}">
+                                        <input type="hidden" name="stok" value="{{ $item->produk->stok }}">
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>
-                                @endif
                             </tr>
+                                @endif
                         @endforeach
                     </tbody>
                 </table>    

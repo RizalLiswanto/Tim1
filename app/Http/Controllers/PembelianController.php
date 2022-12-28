@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\pembelian;
 
 class PembelianController extends Controller
 {
-    public function data()
+    public function index()
     {
-        $pembelian = DB::table('pembelian')->get();
+        $pembelian = pembelian::all();
         return view('pembelian.data', ['pembelian' => $pembelian]);
         //return $edulevels;
     }
@@ -21,39 +22,47 @@ class PembelianController extends Controller
 
     public function addProcess(Request $request)
     {
+        $total = $request->harga * $request->jumlah;
         DB::table('pembelian')->insert([
-            'id_supplier' => $request->id_supplier,
-            'total_item' => $request->total_item,
-            'total_harga' => $request->total_harga,
-            'diskon' => $request->diskon,
-            'bayar' => $request->bayar
+            'tanggal' => $request->tanggal,
+            'kode' => $request->kode,
+            'nama_supplier' => $request->nama_supplier,
+            'kategori_produk' => $request->kategori_produk,
+            'nama_produk' => $request->nama_produk,
+            'jumlah' => $request->jumlah,
+            'harga' => $request->harga,
+            'total' => $total,
         ]);
         return redirect('pembelian')->with('status', 'Pembelian Berhasil ditambah!');
     }
 
     public function edit($id)
     {
-        $pembelian = DB::table('pembelian')->where('id_pembelian', $id)->first();
+        $pembelian = DB::table('pembelian')->where('id', $id)->first();
         return view('pembelian.edit', compact('pembelian'));
         dd($pembelian);
     }
 
     public function editProcess(Request $request, $id)
     {
-        DB::table('pembelian')->where('id_pembelian', $id)
+        $total = $request->harga * $request->jumlah;
+        DB::table('pembelian')->where('id', $id)
             ->update([
-                'id_supplier' => $request->id_supplier,
-                'total_item' => $request->total_item,
-                'total_harga' => $request->total_harga,
-                'diskon' => $request->diskon,
-                'bayar' => $request->bayar
+                'tanggal' => $request->tanggal,
+                'kode' => $request->kode,
+                'nama_supplier' => $request->nama_supplier,
+                'kategori_produk' => $request->kategori_produk,
+                'nama_produk' => $request->nama_produk,
+                'jumlah' => $request->jumlah,
+                'harga' => $request->harga,
+                'total' => $total,
             ]);
             return redirect('pembelian')->with('status', 'Pembelian Berhasil diedit!');
     }
 
     public function delete($id)
     {
-        DB::table('pembelian')->where('id_pembelian', $id)->delete();
+        DB::table('pembelian')->where('id', $id)->delete();
         return redirect('pembelian')->with('status', 'Pembelian Berhasil dihapus!');
     }
 }
