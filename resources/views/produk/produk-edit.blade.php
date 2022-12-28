@@ -43,7 +43,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ url('produks'), $data->id}}" method="POST">
+                        <form action="{{ url('produk', $data->id)}}" method="POST">
+                            @method('patch')
                             @csrf
                             <div class="form-group">
                                 <label>Nama Product</label>
