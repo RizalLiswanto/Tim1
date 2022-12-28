@@ -19,7 +19,8 @@ class PengeluaranController extends Controller
     public function add()
     {
         $pro = produk::all();
-        return view('pengeluaran.add', compact('pro'));
+        $pengeluaran = pengeluaran::with('produk');
+        return view('pengeluaran.add', compact('pengeluaran','pro'));
     }
 
     public function addProcess(Request $request)

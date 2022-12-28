@@ -57,12 +57,12 @@
                                     <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
                                 @endforeach
                             </select>
-                            <input type="hidden" name="stok" value="{{ $item->stok }}">
+                            <input type="hidden" name="stok" value="{{ $pengeluaran->produk->stok }}">
                             </div> 
                             <div class="form-group">
                                 <label>Jumlah</label>
                                 <input type="text" name="jumlah" class="form-control" value="{{ $pengeluaran->jumlah }}" autofocus required>
-                                <input type="hidden" name="old_jumlah" value="{{ $pengeluaran->jumlah }}">                            
+                                <input type="hidden" name="old_jumlah" value="{{ $pengeluaran->jumlah }}">
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>
