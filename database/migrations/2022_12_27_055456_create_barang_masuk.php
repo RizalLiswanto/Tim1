@@ -16,13 +16,8 @@ return new class extends Migration
         Schema::create('barang_masuk', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal_barang');
-            $table->string('kode');
-             $table->string('nama_produk');
-            $table->string('kategori');
-            $table->string('merk');
-            $table->integer('harga');
+            $table->bigInteger('produk_id');
             $table->integer('jumlah');
-            $table->integer('total');
             $table->timestamps();
         });
     }

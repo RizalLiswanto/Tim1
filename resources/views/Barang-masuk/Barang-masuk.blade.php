@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Penjualan</h1>
+                <h1>Barang masuk</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Penjualan</li>
+                    <li class="active">Barang masuk</li>
                 </ol>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Data Penjualan</strong>
+                    <strong>Data Barang masuk</strong>
                 </div>
                 @if (auth()->user()->level == "1")
                 <div class="pull-right">
@@ -56,9 +56,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Produk</th>
                             <th>Tanggal Barang</th>
                             <th>Kode Barang</th>
+                            <th>Nama Produk</th>
                             <th>Kategori</th>
                             <th>Merk</th>
                             <th>Harga </th>
@@ -73,14 +73,14 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->nama_produk }}</td>
-                                <td>{{ $item->tanggal_barang }}</td>
-                                <td>{{ $item->kode}}</td>
-                                <td>{{ $item->kategori }}</td>
-                                <td>{{ $item->merk}}</td>
-                                <td>{{ $item->harga }}</td>
+                                <td>{{ $item->tanggal_barang}}</td>
+                                <td>{{ $item->produk->kode }}</td>
+                                <td>{{ $item->produk->nama_produk }}</td>
+                                <td>{{ $item->produk->kategori->kategori }}</td>
+                                <td>{{ $item->produk->merk }}</td>
+                                <td>{{ $item->produk->harga_beli}}</td>
                                 <td>{{ $item->jumlah }}</td>
-                                <td>{{ $item->total }}</td>
+                                <td>{{ $item->jumlah * $item->produk->harga_beli }}</td>
                               
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">

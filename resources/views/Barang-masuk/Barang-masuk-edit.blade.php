@@ -47,36 +47,21 @@
                             @method('patch')
                             @csrf
                             <div class="form-group">
-                                <label>Tanggal Barang</label>
-                                <input type="date" name="tanggal_barang" class="form-control" autofocus required value="{{ $data->tanggal_barang ?? 'tanggal_barang'}}">
+                                <label>Tanggal</label>
+                                <input type="text" name="tanggal_barang" class="form-control" value="{{ $data->tanggal_barang ?? 'nama'}}" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Nama Produk</label>
-                                <input type="text" name="nama_produk" class="form-control" autofocus required value="{{ $data->nama_produk ?? 'nama_produk'}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Kode Barang</label>
-                                <input type="text" name="kode" class="form-control" autofocus required value="{{ $data->kode ?? 'kode'}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <input type="text" name="kategori" class="form-control" autofocus required value="{{ $data->kategori ?? 'kategori'}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Merk</label>
-                                <input type="text" name="merk" class="form-control" autofocus required value="{{ $data->merk ?? 'merk'}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Harga</label>
-                                <input type="text" name="harga" class="form-control" autofocus required value="{{ $data->harga ?? 'harga'}}">
-                            </div>
+                                <label >Nama Produk</label>
+                                <input type="text" class="form-control" readonly value="{{ $data->produk->nama_produk }}">
+                                <input type="hidden" name="produk_id" value="{{ $data->produk_id}}">
+                               
+                           
+                            <input type="hidden" name="stok" value="{{ $data->produk->stok }}">
+                            </div> 
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control" autofocus required value="{{ $data->jumlah ?? 'jumlah'}}">
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="text" name="total" class="form-control" autofocus required value="{{ $data->total ?? 'total'}}">
+                                <input type="text" name="jumlah" class="form-control" value="{{ $data->jumlah }}" autofocus required>
+                                <input type="hidden" name="old_jumlah" value="{{ $data->jumlah }}">
                             </div>
                             
                             <button type="submit" class="btn btn-success">Save</button>
