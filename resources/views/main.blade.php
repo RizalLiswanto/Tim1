@@ -90,6 +90,9 @@
                     <li class="active">
                         <a href="{{('/produk/produk')}}"> <i class="menu-icon fa fa-truck"></i>Product </a>
                     </li>
+                    <li class="active">
+                        <a href="{{('/laporan')}}"> <i class="menu-icon fa fa-file"></i>Laporan </a>
+                    </li>
                    
 
                 

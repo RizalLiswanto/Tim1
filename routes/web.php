@@ -5,6 +5,7 @@ use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,3 +84,6 @@ Route::post('penjualan', 'App\Http\Controllers\PenjualanController@addProcess');
 Route::get('penjualan/edit/{id}', 'App\Http\Controllers\PenjualanController@edit');
 Route::patch('penjualan/{id}', 'App\Http\Controllers\PenjualanController@editProcess');
 Route::delete('penjualan/{id}', 'App\Http\Controllers\PenjualanController@delete');
+
+Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.export');
