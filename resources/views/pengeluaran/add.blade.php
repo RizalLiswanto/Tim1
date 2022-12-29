@@ -59,8 +59,12 @@
                                     <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
                                 @endforeach
                             </select>
-                                <input type="hidden" value="{{ $item->stok }}" name="stok">
+                                
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label >Stok Produk</label>
+                                <input type="text" name="stok" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>

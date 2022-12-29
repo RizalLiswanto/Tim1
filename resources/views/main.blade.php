@@ -88,9 +88,6 @@
                         <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('pembelian')}}"> <i class="menu-icon fa fa-bold"></i>Pembelian </a>
-                    </li>
-                    <li class="active">
                         <a href="{{('/laporan')}}"> <i class="menu-icon fa fa-file"></i>Laporan </a>
                     </li>
                    

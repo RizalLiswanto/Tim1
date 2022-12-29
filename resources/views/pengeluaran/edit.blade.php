@@ -51,12 +51,9 @@
                                 <input type="text" name="tanggal" class="form-control" value="{{ $pengeluaran->tanggal ?? 'name'}}" autofocus required>
                             </div>
                             <div class="form-group">
-                                <select name="produk_id">
-                                    <option hidden value="{{ $pengeluaran->produk_id ?? 'produk_id'}}">{{ $pengeluaran->produk->nama_produk}}</option>
-                                @foreach ($pro as $item)
-                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
-                                @endforeach
-                            </select>
+                                <label >Nama Produk</label>
+                                <input type="text" class="form-control" readonly value="{{ $pengeluaran->produk->nama_produk }}">
+                                <input type="hidden" name="produk_id" value="{{ $pengeluaran->produk_id }}">
                             <input type="hidden" name="stok" value="{{ $pengeluaran->produk->stok }}">
                             </div> 
                             <div class="form-group">

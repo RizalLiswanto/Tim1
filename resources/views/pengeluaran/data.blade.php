@@ -56,6 +56,7 @@
                             <th>Kode</th>
                             <th>Kategori</th>
                             <th>Produk</th>
+                            <th>Merk</th>
                             <th>Harga</th>
                             <th>Jumlah</th>
                             <th>Total</th>
@@ -72,6 +73,7 @@
                                 <td>{{ $item->produk->kode }}</td>
                                 <td>{{ $item->produk->kategori->kategori }}</td>
                                 <td>{{ $item->produk->nama_produk }}</td>
+                                <td>{{ $item->produk->merk }}</td>
                                 <td>{{ $item->produk->harga_jual }}</td>
                                 <td>{{ $item->jumlah }}</td>
                                 <td>{{ $item->jumlah * $item->produk->harga_jual }}</td>
