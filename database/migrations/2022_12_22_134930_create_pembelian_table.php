@@ -14,12 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pembelian', function (Blueprint $table) {
-            $table->increments('id_pembelian');
-            $table->integer('id_supplier');
-            $table->integer('total_item');
-            $table->integer('total_harga');
-            $table->integer('diskon')->default(0);
-            $table->integer('bayar')->default(0);
+            $table->id();
+            $table->date('tanggal');
+            $table->string('kode');
+            $table->string('nama_supplier');
+            $table->string('kategori_produk');
+            $table->string('nama_produk');
+            $table->integer('jumlah');
+            $table->integer('harga');
+            $table->integer('total');
             $table->timestamps();
         });
     }
