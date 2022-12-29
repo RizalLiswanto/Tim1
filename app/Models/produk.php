@@ -22,4 +22,10 @@ class produk extends Model
     }
 
    
+    // public function pembelian(){
+    //     return $this->hasMany(pembelian::class);
+    // }
+    public function pengeluaran(){
+        return $this->hasOne(pengeluaran::class);
+    }
 }
