@@ -43,16 +43,26 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ url('pengeluaran', $pengeluaran->id_pengeluaran)}}" method="POST">
+                        <form action="{{ url('pengeluaran', $pengeluaran->id)}}" method="POST">
                             @method('patch')
                             @csrf
                             <div class="form-group">
-                                <label>Deskripsi</label>
-                                <input type="text" name="deskripsi" class="form-control" value="{{ $pengeluaran->deskripsi ?? 'name'}}" autofocus required>
+                                <label>Tanggal</label>
+                                <input type="text" name="tanggal" class="form-control" value="{{ $pengeluaran->tanggal ?? 'name'}}" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Nominal</label>
-                                <textarea name="nominal" class="form-control" required>{{ $pengeluaran->nominal ?? 'desc'}}</textarea>
+                                <select name="produk_id">
+                                    <option hidden value="{{ $pengeluaran->produk_id ?? 'produk_id'}}">{{ $pengeluaran->produk->nama_produk}}</option>
+                                @foreach ($pro as $item)
+                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                            </select>
+                            <input type="hidden" name="stok" value="{{ $pengeluaran->produk->stok }}">
+                            </div> 
+                            <div class="form-group">
+                                <label>Jumlah</label>
+                                <input type="text" name="jumlah" class="form-control" value="{{ $pengeluaran->jumlah }}" autofocus required>
+                                <input type="hidden" name="old_jumlah" value="{{ $pengeluaran->jumlah }}">
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>
