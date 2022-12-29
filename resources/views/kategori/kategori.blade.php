@@ -56,7 +56,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th>Kategori</th>
                             @if (auth()->user()->level == "1")
                             <th>Action</th>
                             @endif

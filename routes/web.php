@@ -31,15 +31,6 @@ Route::group(['middleware' => ['auth']], function (){
     Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:1']], function (){
         Route::resource('admin',HomeController::class);
     });
-
-
-    Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:2']], function (){
-        Route::resource('guru',HomeController::class);
-    });
-
-    Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:3']], function (){
-        Route::resource('siswa',HomeController::class);
-    });
 });
 
 
@@ -71,13 +62,6 @@ Route::post('pengeluaran', [PengeluaranController::class, 'addProcess']);
 Route::get('pengeluaran/edit/{id}', [PengeluaranController::class, 'edit']);
 Route::patch('pengeluaran/{id}', [PengeluaranController::class, 'editProcess']);
 Route::delete('pengeluaran/{id}', [PengeluaranController::class, 'delete']);
-
-Route::get('pembelian', [PembelianController::class, 'index']);
-Route::get('pembelian/add', [PembelianController::class, 'add']);
-Route::post('pembelian', [PembelianController::class, 'addProcess']);
-Route::get('pembelian/edit/{id}', [PembelianController::class, 'edit']);
-Route::patch('pembelian/{id}', [PembelianController::class, 'editProcess']);
-Route::delete('pembelian/{id}', [PembelianController::class, 'delete']);
 
 Route::get('Barang-masuk/Barang-masuk', [BarangmasukController::class, 'index'])->name('produk');
 Route::get('Barang-masuk/Barang-masuk-add', [BarangmasukController::class, 'add'])->name('produk-add');
