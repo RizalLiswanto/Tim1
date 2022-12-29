@@ -35,7 +35,7 @@
                     <strong>Tambah Penjualan</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('penjualan')}}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('Barang-masuks')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -43,35 +43,39 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ url('penjualan')}}" method="POST">
+                        <form action="{{ url('Barang-masuks')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>ID Member</label>
-                                <input type="text" name="id_member" class="form-control" autofocus required>
+                                <label>Tanggal Barang</label>
+                                <input type="date" name="tanggal_barang" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Total Item</label>
-                                <input type="text" name="total_item" class="form-control" autofocus required>
+                                <label>Nama Produk</label>
+                                <input type="text" name="nama_produk" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Total Harga</label>
-                                <input type="text" name="total_harga" class="form-control" autofocus required>
+                                <label>Kode Barang</label>
+                                <input type="text" name="kode" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Diskon</label>
-                                <input type="text" name="diskon" class="form-control" autofocus required>
+                                <label>Kategori</label>
+                                <input type="text" name="kategori" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Bayar</label>
-                                <input type="text" name="bayar" class="form-control" autofocus required>
+                                <label>Merk</label>
+                                <input type="text" name="merk" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Diterima</label>
-                                <input type="text" name="diterima" class="form-control" autofocus required>
+                                <label>Harga</label>
+                                <input type="text" name="harga" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>ID User</label>
-                                <input type="text" name="id_user" class="form-control" autofocus required>
+                                <label>Jumlah</label>
+                                <input type="text" name="jumlah" class="form-control" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label>Total</label>
+                                <input type="text" name="total" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

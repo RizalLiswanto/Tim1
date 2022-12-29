@@ -27,6 +27,81 @@
 <div class="content mt-3">
 
     <div class="animated fadeIn">
+        
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">10468</span>
+                    </h4>
+                    <p class="text-light">Members online</p>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </div>
         

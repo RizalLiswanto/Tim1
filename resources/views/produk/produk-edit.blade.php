@@ -54,17 +54,16 @@
                                 <label>Kode Barang</label>
                                 <input type="text" name="kode" value="{{ $data->kode ?? 'kode'}}"class="form-control" autofocus required>
                             </div>
-                            <div class="form-group">
-                                <select name="kategori_id" id="">
-                              
-                                    <option value="{{ $data->kategori_id ?? 'kategori_id'}}">{{ $data->kategori->kategori}}</option>
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <select name="kategori_id" id="select" class="form-control">
+                                        <option value="{{ $data->kategori_id ?? 'kategori_id'}}">{{ $data->kategori->kategori}}</option>
                                 @foreach ($kate as $item)
                                     <option value="{{$item->id}}">{{ $item->kategori }}</option>
                                 @endforeach
-                            </select>
-                           
-                            </div> 
-                            
+                                    </select>
+                                </div>
+                            </div>        
                             <div class="form-group">
                                 <label>Merk</label>
                                 <input type="text" name="merk" value="{{ $data->merk ?? 'merk'}}" class="form-control" autofocus required>
