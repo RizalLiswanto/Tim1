@@ -46,51 +46,27 @@
                         <form action="{{ url('Barang-masuks')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label>Tanggal Barang</label>
+                                <label>Tanggal</label>
                                 <input type="date" name="tanggal_barang" class="form-control" autofocus required>
                             </div>
-                            <div class="form-group">
-                                
-                                @foreach ($pro as $item)
-                                <input type="hidden" name="kode_id" class="form-control" autofocus required value="{{$item->id}}">
-                                @endforeach
-                            </div>
-                           
                             <div class="row form-group">
                                 <div class="col-12 col-md-9">
+                                    <label>Pilih Produk</label>
                                     <select name="produk_id" id="select" class="form-control">
-                                        <option value="disabled value">Pilih kategori</option>
-                                @foreach ($pro as $item)
+                                    @foreach ($pro as $item)
+                                        <option value="disabled value" hidden>Pilih Produk</option>
                                     <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
                                 @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row form-group">
-                                <div class="col-12 col-md-9">
-                                    <select name="kategori_id" id="select" class="form-control">
-                                        <option value="disabled value">Pilih kategori</option>
-                                @foreach ($kate as $item)
-                                    <option value="{{$item->id}}">{{ $item->kategori }}</option>
-                                @endforeach
-                                    </select>
+                            </select> 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Merk</label>
-                                <input type="text" name="merk" class="form-control" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label>Harga</label>
-                                <input type="text" name="harga" class="form-control" autofocus required>
+                                <label>Stock</label>
+                                <input type="text" value="{{ $item->stok }}" name="stok" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="text" name="total" class="form-control" autofocus required>
+                                <input type="number" name="jumlah" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

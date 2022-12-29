@@ -11,7 +11,7 @@ class Barangmasuk extends Model
     protected $table = 'barang_masuk';
     protected $primaryKey = "id";
     protected $fillable = [
-        'id','produk_id','tanggal_barang','kode_id','kategori_id','merk','harga','jumlah','total'
+        'id','produk_id','tanggal_barang','jumlah'
     ];
     public function kategori(){
         return $this->belongsTo(kategori::class);

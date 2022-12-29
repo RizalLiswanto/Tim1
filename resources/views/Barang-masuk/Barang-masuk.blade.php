@@ -56,9 +56,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Produk</th>
                             <th>Tanggal Barang</th>
                             <th>Kode Barang</th>
+                            <th>Nama Produk</th>
                             <th>Kategori</th>
                             <th>Merk</th>
                             <th>Harga </th>
@@ -73,14 +73,14 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->tanggal_barang}}</td>
+                                <td>{{ $item->produk->kode }}</td>
                                 <td>{{ $item->produk->nama_produk }}</td>
-                                <td>{{ $item->tanggal_barang }}</td>
-                                <td>{{ $item->produk->kode}}</td>
-                                <td>{{ $item->kategori->kategori }}</td>
-                                <td>{{ $item->merk}}</td>
-                                <td>{{ $item->harga }}</td>
+                                <td>{{ $item->produk->kategori->kategori }}</td>
+                                <td>{{ $item->produk->merk }}</td>
+                                <td>{{ $item->produk->harga_beli}}</td>
                                 <td>{{ $item->jumlah }}</td>
-                                <td>{{ $item->total }}</td>
+                                <td>{{ $item->jumlah * $item->produk->harga_beli }}</td>
                               
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
