@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="{{ asset('style/vendors/bootstrap/dist/css/bootstrap.min.css')}}">
 </head>
 <body>
-    <h3 class="text-center">laporan</h3>
+    <h3 class="text-center">Laporan Harian</h3>
 
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Tanggal</th>
+                <th>Tanggal Masuk</th>
+                <th>Tanggal Keluar</th>
                 <th>Kode Barang</th>
                 <th>Nama Barang</th>
                 <th>Jumlah Masuk</th>
                 <th>Jumlah Keluar</th>
-                <th>Jumlah Pengeluaran</th>
                 <th>Total Barang</th>
             </tr>
         </thead>
