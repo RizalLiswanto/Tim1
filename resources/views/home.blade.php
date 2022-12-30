@@ -27,14 +27,16 @@
 <div class="content mt-3">
 
     <div class="animated fadeIn">
-        
+       
+            
+     
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{ $pengguna }}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <a class="text-light" href="#">Jumlah data user</a>
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
                     </div>
@@ -46,24 +48,9 @@
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{ $kategori }}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
-
-                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
-                        <canvas id="widgetChart2"></canvas>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
-                <div class="card-body pb-0">
-                    <h4 class="mb-0">
-                        <span class="count">10468</span>
-                    </h4>
-                    <p class="text-light">Members online</p>
+                    <a class="text-light"  href="/kategori/kategori">Data Kategori</a>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
@@ -76,9 +63,9 @@
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{ $produk }}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <a class="text-light" href="/produk/produk">Data Produk </a>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
@@ -91,9 +78,24 @@
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
-                        <span class="count">10468</span>
+                        <span class="count">{{ $barangmasuk }}</span>
                     </h4>
-                    <p class="text-light">Members online</p>
+                    <a class="text-light" href="/Barang-masuk/Barang-masuk"> Data Barang masuk</a> 
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-flat-color-2">
+                <div class="card-body pb-0">
+                    <h4 class="mb-0">
+                        <span class="count">{{ $pengeluaran }}</span>
+                    </h4>
+                    <a class="text-light" href="/pengeluaran"> Pengeluaran</a>
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>

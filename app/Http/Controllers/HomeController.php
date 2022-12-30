@@ -10,17 +10,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controllers;
+use App\Models\pengeluaran;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
     public function index()
     {
-      $produk = DB::table('produk')->count();
-      $kategori = DB::table('kategori')->count();
-      $barangmasuk= DB::table('barang_masuk')->count();
+      $pengguna = User::where('level','1')->count();
+      $produk = produk::count();
+      $kategori = kategori::count();
+      $barangmasuk = Barangmasuk::count();
+      $pengeluaran = pengeluaran::count();
 
 
-        return view('home',compact('produk','kategori','barangmasuk'));
+        return view('home',compact('pengguna','produk','kategori','barangmasuk','pengeluaran'));
     }
 }

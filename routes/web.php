@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangmasukController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PengeluaranController;
@@ -23,7 +24,7 @@ Route::get('/', function () {
     return view('user.login', ['title' => 'login']);
 })->name('login');
 
-Route::get('home', function () {
+Route::get('home', [HomeController::class, 'index'], function () {
     return view('home', ['title' => 'home']);
 })->name('home');
 
@@ -33,7 +34,7 @@ Route::group(['middleware' => ['auth']], function (){
     });
 });
 
-
+Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'register_action'])->name('register.action');
 Route::get('login', [UserController::class, 'login'])->name('login');
