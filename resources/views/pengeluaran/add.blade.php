@@ -63,10 +63,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label >Stok Produk</label>
-                                <input type="text" name="stok" class="form-control" autofocus required>
-                            </div>
-                            <div class="form-group">
                                 <label>Jumlah</label>
                                 <input type="number" name="jumlah" class="form-control" autofocus required>
                             </div>

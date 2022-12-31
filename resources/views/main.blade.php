@@ -31,7 +31,6 @@
     <script src="{{ asset('style/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/main.js')}}"></script>
 
-
     <script src="{{ asset('style/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/dashboard.js')}}"></script>
     <script src="{{ asset('style/assets/js/widgets.js')}}"></script>
@@ -87,14 +86,16 @@
                     <li class="active">
                         <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
                     </li>
-                    <li class="active">
-                        <a href="{{('/laporan')}}"> <i class="menu-icon fa fa-file"></i>Laporan </a>
+                    <li class="menu-item-has-children dropdown show">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-file"></i>Rekap Laporan</a>
+                        <ul class="sub-menu children dropdown-menu show">
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-kategori') }}">Rekap Kategori</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-produk') }}">Rekap Product</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-barang-masuk') }}">Rekap Laporan Barang Masuk</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url( 'laporan-pengeluaran' ) }}">Rekap Laporan Pengeluaran</a></li>
+                        </ul>
                     </li>
                    
-                    
-                   
-
-                
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

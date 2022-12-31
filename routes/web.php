@@ -70,5 +70,11 @@ Route::get('Barang-masuk/Barang-masuk-edit/{id}',[BarangmasukController::class,'
 Route::patch('Barang-masuk/{id}', [BarangmasukController::class,'editProcess']);
 Route::delete('Barang-masuk/{id}',[BarangmasukController::class,'delete']);
 
-Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
-Route::get('laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.export');
+Route::get('laporan-kategori', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('laporan-kategori/pdf', [LaporanController::class, 'exportPDF'])->name('laporan.export');
+Route::get('laporan-produk', [LaporanController::class, 'produk_view']);
+Route::get('laporan-produk/pdf', [LaporanController::class, 'produkPDF']);
+Route::get('laporan-barang-masuk', [LaporanController::class, 'masuk_view']);
+Route::get('laporan-barang-masuk/pdf', [LaporanController::class, 'masukPDF']);
+Route::get('laporan-pengeluaran', [LaporanController::class, 'pengeluaran_view']);
+Route::get('laporan-pengeluaran/pdf', [LaporanController::class, 'keluarPDF']);

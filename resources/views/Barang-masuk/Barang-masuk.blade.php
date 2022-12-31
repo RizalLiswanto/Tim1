@@ -88,6 +88,8 @@
                                     <form action="{{ url('Barang-masuk', $item->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
+                                        <input type="hidden" name="produk_id" value="{{ $item->produk_id }}">
+                                        <input type="hidden" name="jumlah" value="{{ $item->jumlah }}">
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>

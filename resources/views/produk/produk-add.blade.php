@@ -55,8 +55,9 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col-12 col-md-9">
+                                    <label >Pilih Kategori</label>
                                     <select name="kategori_id" id="select" class="form-control">
-                                        <option value="disabled value">Pilih kategori</option>
+                                        <option hidden value="disabled value">Pilih kategori</option>
                                 @foreach ($kate as $item)
                                     <option value="{{$item->id}}">{{ $item->kategori }}</option>
                                 @endforeach

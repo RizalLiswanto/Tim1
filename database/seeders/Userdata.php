@@ -22,18 +22,6 @@ class Userdata extends Seeder
                 'level' => 1,
                 'password' => bcrypt('12345')
             ],
-            [
-                'name' => 'Siswa',
-                'username' => 'siswa',
-                'level' => 1,
-                'password' => bcrypt('12345')
-            ],
-            [
-                'name' => 'Guru',
-                'username' => 'guru',
-                'level' => 1,
-                'password' => bcrypt('12345')
-            ],
         ];
 
         foreach($user as $key => $value){
