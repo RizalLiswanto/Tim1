@@ -7,22 +7,33 @@
     <title class="text-center">Laporan Kategori</title>
 </head>
 <body>
-    <h3 class="text-center" align="center">LAPORAN KATEGORI</h3>
+    <h3 class="text-center" align="center">LAPORAN PRODUK</h3>
     <div class="form-group">
     <table class="table table-striped table-hover table-bordered" align="center" rules="all" border="1px" style="width:95%;">
         <thead>
             <tr>
                 <th>No</th>
+                <th>Nama Produk</th>
+                <th>Kode Barang</th>
                 <th>Kategori</th>
+                <th>Merk</th>
+                <th>Harga Beli</th>
+                <th>Harga Jual</th>
+                <th>Stok</th>
             </tr>
         </thead>
         <tbody align="center">
             @foreach ($data as $item )
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->kategori }}</td>
-            </tr>
-            @endforeach
+                <td>{{ $item->nama_produk }}</td>
+                <td>{{ $item->kode }}</td>
+                <td>{{ $item->kategori->kategori }}</td>
+                <td>{{ $item->merk }}</td>
+                <td>{{ $item->harga_beli }}</td>
+                <td>{{ $item->harga_jual }}</td>
+                <td>{{ $item->stok }}</td>
+        @endforeach
         </tbody>
     </table>
     </div>

@@ -59,7 +59,7 @@
                                     <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
                                 @endforeach
                             </select>
-                                <input type="hidden" value="{{ $item->stok }}" name="stok">
+                                
                                 </div>
                             </div>
                             <div class="form-group">

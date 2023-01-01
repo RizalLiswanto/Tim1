@@ -56,6 +56,7 @@
                             <th>Kode</th>
                             <th>Kategori</th>
                             <th>Produk</th>
+                            <th>Merk</th>
                             <th>Harga</th>
                             <th>Jumlah</th>
                             <th>Total</th>
@@ -72,9 +73,10 @@
                                 <td>{{ $item->produk->kode }}</td>
                                 <td>{{ $item->produk->kategori->kategori }}</td>
                                 <td>{{ $item->produk->nama_produk }}</td>
+                                <td>{{ $item->produk->merk }}</td>
                                 <td>{{ $item->produk->harga_jual }}</td>
-                                <td>{{ $item->jumlah }}</td>
-                                <td>{{ $item->jumlah * $item->produk->harga_jual }}</td>
+                                <td>{{ $item->jumlah_keluar }}</td>
+                                <td>{{ $item->jumlah_keluar * $item->produk->harga_jual }}</td>
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
                                     <a href="{{ url('pengeluaran/edit', $item->id)}}" class="btn btn-primary btn-sm">edit</a>
@@ -82,8 +84,7 @@
                                         @method('delete')
                                         @csrf
                                         <input type="hidden" name="produk_id" value="{{ $item->produk_id }}">
-                                        <input type="hidden" name="jumlah" value="{{ $item->jumlah }}">
-                                        <input type="hidden" name="stok" value="{{ $item->produk->stok }}">
+                                        <input type="hidden" name="jumlah" value="{{ $item->jumlah_keluar }}">
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>

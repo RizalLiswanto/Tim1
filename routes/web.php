@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PengeluaranController;
@@ -29,15 +30,6 @@ Route::get('home', function () {
 Route::group(['middleware' => ['auth']], function (){
     Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:1']], function (){
         Route::resource('admin',HomeController::class);
-    });
-
-
-    Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:2']], function (){
-        Route::resource('guru',HomeController::class);
-    });
-
-    Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:3']], function (){
-        Route::resource('siswa',HomeController::class);
     });
 });
 
@@ -71,19 +63,18 @@ Route::get('pengeluaran/edit/{id}', [PengeluaranController::class, 'edit']);
 Route::patch('pengeluaran/{id}', [PengeluaranController::class, 'editProcess']);
 Route::delete('pengeluaran/{id}', [PengeluaranController::class, 'delete']);
 
-Route::get('pembelian', [PembelianController::class, 'index']);
-Route::get('pembelian/add', [PembelianController::class, 'add']);
-Route::post('pembelian', [PembelianController::class, 'addProcess']);
-Route::get('pembelian/edit/{id}', [PembelianController::class, 'edit']);
-Route::patch('pembelian/{id}', [PembelianController::class, 'editProcess']);
-Route::delete('pembelian/{id}', [PembelianController::class, 'delete']);
+Route::get('Barang-masuk/Barang-masuk', [BarangmasukController::class, 'index'])->name('produk');
+Route::get('Barang-masuk/Barang-masuk-add', [BarangmasukController::class, 'add'])->name('produk-add');
+Route::post('Barang-masuks', [BarangmasukController::class,'addProcess']);
+Route::get('Barang-masuk/Barang-masuk-edit/{id}',[BarangmasukController::class,'edit']);
+Route::patch('Barang-masuk/{id}', [BarangmasukController::class,'editProcess']);
+Route::delete('Barang-masuk/{id}',[BarangmasukController::class,'delete']);
 
-Route::get('penjualan', 'App\Http\Controllers\PenjualanController@data');
-Route::get('penjualan/add', 'App\Http\Controllers\PenjualanController@add');
-Route::post('penjualan', 'App\Http\Controllers\PenjualanController@addProcess');
-Route::get('penjualan/edit/{id}', 'App\Http\Controllers\PenjualanController@edit');
-Route::patch('penjualan/{id}', 'App\Http\Controllers\PenjualanController@editProcess');
-Route::delete('penjualan/{id}', 'App\Http\Controllers\PenjualanController@delete');
-
-Route::get('laporan', [LaporanController::class, 'index'])->name('laporan.index');
-Route::get('laporan/pdf/{awal}/{akhir}', [LaporanController::class, 'exportPDF'])->name('laporan.export');
+Route::get('laporan-kategori', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('laporan-kategori/pdf', [LaporanController::class, 'exportPDF'])->name('laporan.export');
+Route::get('laporan-produk', [LaporanController::class, 'produk_view']);
+Route::get('laporan-produk/pdf', [LaporanController::class, 'produkPDF']);
+Route::get('laporan-barang-masuk', [LaporanController::class, 'masuk_view']);
+Route::get('laporan-masuk/pdf', [LaporanController::class, 'masukPDF']);
+Route::get('laporan-pengeluaran', [LaporanController::class, 'pengeluaran_view']);
+Route::get('laporan-keluar/pdf', [LaporanController::class, 'keluarPDF']);

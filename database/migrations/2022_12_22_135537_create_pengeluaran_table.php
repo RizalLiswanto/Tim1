@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal');
             $table->bigInteger('produk_id');
-            $table->integer('jumlah');
+            $table->integer('jumlah_keluar');
             $table->timestamps();
         });
     }

@@ -27,11 +27,15 @@
 <div class="content mt-3">
 
     <div class="animated fadeIn">
-
         @if (session('status'))
-            <div class="alert alert-success">
-               {{ session('status') }}
+        <div class="col-sm-12">
+            <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                <span class="badge badge-pill badge-success"></span> {{ session('status') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+        </div>
         @endif
 
         <div class="card">
@@ -52,7 +56,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th>Kategori</th>
                             @if (auth()->user()->level == "1")
                             <th>Action</th>
                             @endif

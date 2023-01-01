@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Pengeluaran</h1>
+                <h1>Barang masuk</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Pengeluaran</li>
+                    <li class="active">Barang masuk</li>
                 </ol>
             </div>
         </div>
@@ -32,10 +32,10 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Edit Pengeluaran</strong>
+                    <strong>Tambah Barang masuk</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('pengeluaran')}}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('Barang-masuks')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -43,22 +43,26 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action="{{ url('pengeluaran', $pengeluaran->id)}}" method="POST">
-                            @method('patch')
+                        <form action="{{ url('Barang-masuks')}}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="date" name="tanggal" class="form-control" value="{{ $pengeluaran->tanggal ?? 'name'}}" autofocus required>
+                                <input type="date" name="tanggal_barang" class="form-control" autofocus required>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-md-9">
+                                    <label>Pilih Produk</label>
+                                    <select name="produk_id" id="select" class="form-control">
+                                    @foreach ($pro as $item)
+                                        <option value="disabled value" hidden>Pilih Produk</option>
+                                    <option value="{{$item->id}}">{{ $item->nama_produk }}</option>
+                                @endforeach
+                            </select> 
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label >Nama Produk</label>
-                                <input type="text" class="form-control" readonly value="{{ $pengeluaran->produk->nama_produk }}">
-                                <input type="hidden" name="produk_id" value="{{ $pengeluaran->produk_id }}">
-                            </div> 
-                            <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control" value="{{ $pengeluaran->jumlah_keluar }}" autofocus required>
-                                <input type="hidden" name="old_jumlah" value="{{ $pengeluaran->jumlah_keluar }}">
+                                <input type="number" name="jumlah" class="form-control" autofocus required>
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>

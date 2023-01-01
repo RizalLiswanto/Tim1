@@ -13,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pembelian', function (Blueprint $table) {
+        Schema::create('laporan_harian', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->string('kode');
-            $table->string('nama_supplier');
-            $table->string('kategori_produk');
-            $table->string('nama_produk');
-            $table->integer('jumlah');
-            $table->integer('harga');
-            $table->integer('total');
+            $table->date('tanggal')->unique();
             $table->timestamps();
         });
     }
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembelian');
+        Schema::dropIfExists('laporan_harian');
     }
 };

@@ -31,7 +31,6 @@
     <script src="{{ asset('style/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/main.js')}}"></script>
 
-
     <script src="{{ asset('style/vendors/chart.js/dist/Chart.bundle.min.js')}}"></script>
     <script src="{{ asset('style/assets/js/dashboard.js')}}"></script>
     <script src="{{ asset('style/assets/js/widgets.js')}}"></script>
@@ -66,8 +65,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./">Latihan</a>
-                <a class="navbar-brand hidden" href="./">L</a>
+                <a class="navbar-brand" href="{{ url('home')}}">POS Sederhana</a>
+                <a class="navbar-brand hidden" href="">FHR</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -76,26 +75,27 @@
                         <a href="{{ url('home')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{ url('pembelian')}}"> <i class="menu-icon fa fa-bold"></i>Pembelian </a>
-                    </li>
-                    <li class="active">
-                        <a href="{{ url('penjualan')}}"> <i class="menu-icon fa fa-money"></i>Barang Masuk</a>
-                    </li>
-                    <li class="active">
                         <a href="{{('/kategori/kategori')}}"> <i class="menu-icon fa fa-tasks"></i>Kategori </a>
                     </li>
                     <li class="active">
                         <a href="{{('/produk/produk')}}"> <i class="menu-icon fa fa-truck"></i>Product </a>
                     </li>
                     <li class="active">
-                        <a href="{{('/laporan')}}"> <i class="menu-icon fa fa-file"></i>Laporan </a>
+                        <a href="{{ url('Barang-masuk/Barang-masuk')}}"> <i class="menu-icon fa fa-money"></i>Barang Masuk</a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('pengeluaran')}}"> <i class="menu-icon fa fa-shopping-cart"></i>Pengeluaran </a>
+                    </li>
+                    <li class="menu-item-has-children dropdown show">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-file"></i>Rekap Laporan</a>
+                        <ul class="sub-menu children dropdown-menu show">
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-kategori') }}">Rekap Kategori</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-produk') }}">Rekap Product</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-barang-masuk') }}">Rekap Laporan Barang Masuk</a></li>
+                            <li><i class="fa fa-file"></i><a href="{{ url( 'laporan-pengeluaran' ) }}">Rekap Laporan Pengeluaran</a></li>
+                        </ul>
                     </li>
                    
-
-                
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
