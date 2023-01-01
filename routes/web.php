@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangmasukController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PengeluaranController;
@@ -30,6 +31,7 @@ Route::get('home', function () {
 Route::group(['middleware' => ['auth']], function (){
     Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:1']], function (){
         Route::resource('admin',HomeController::class);
+        Route::get('home', [HomeController::class, 'index'])->name('home');
     });
 });
 
