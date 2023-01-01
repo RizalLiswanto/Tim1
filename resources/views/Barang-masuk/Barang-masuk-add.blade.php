@@ -61,8 +61,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Stock</label>
-                                <input type="text" value="{{ $item->stok }}" name="stok" class="form-control" autofocus required>
+                                <label >Stok Produk</label>
+                                <input type="text" name="stok" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Jumlah</label>

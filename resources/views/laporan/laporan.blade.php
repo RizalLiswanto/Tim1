@@ -55,13 +55,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Tanggal</th>
+                            <th>Tanggal Masuk</th>
+                            <th>Tanggal Keluar</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Jumlah Masuk</th>
                             <th>Jumlah Keluar</th>
-                            <th>Jumlah Pengeluaran</th>
                             <th>Total Barang</th>
                         </tr>
                     </thead>
