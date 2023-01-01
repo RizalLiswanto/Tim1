@@ -19,4 +19,7 @@ class Barangmasuk extends Model
     public function produk(){
         return $this->belongsTo(produk::class);
     }
+    public function laporan_harian(){
+        return $this->belongsTo(laporan_harian::class);
+    }
 }

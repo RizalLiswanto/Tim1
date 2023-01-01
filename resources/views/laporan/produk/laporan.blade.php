@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Rekap Laporan Kategori</h1>
+                <h1>Rekap Laporan Produk</h1>
             </div>
         </div>
     </div>
@@ -37,11 +37,11 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Rekap Laporan Kategori</strong>
+                    <strong>Rekap Laporan Produk</strong>
                 </div>
                 @if (auth()->user()->level == "1")
                 <div class="pull-right">
-                    <a href="{{ url('laporan-kategori/pdf') }}" target="_blank" class="btn btn-info btn-sm">
+                    <a href="{{ url('laporan-produk/pdf') }}" target="_blank" class="btn btn-info btn-sm">
                         <i class="fa fa-file"></i> Export PDF
                     </a>
                 </div>
@@ -52,14 +52,26 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nama Produk</th>
+                            <th>Kode Barang</th>
                             <th>Kategori</th>
+                            <th>Merk</th>
+                            <th>Harga Beli</th>
+                            <th>Harga Jual</th>
+                            <th>Stok</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item )
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->nama_produk }}</td>
+                            <td>{{ $item->kode }}</td>
+                            <td>{{ $item->kategori->kategori }}</td>
+                            <td>{{ $item->merk }}</td>
+                            <td>{{ $item->harga_beli }}</td>
+                            <td>{{ $item->harga_jual }}</td>
+                            <td>{{ $item->stok }}</td>
                     @endforeach
                     </tbody>
                 </table>    

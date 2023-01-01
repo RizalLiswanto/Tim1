@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Penjualan</h1>
+                <h1>Barang Masuk</h1>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Penjualan</li>
+                    <li class="active">Barang Masuk</li>
                 </ol>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Edit Penjualan</strong>
+                    <strong>Edit Barang Masuk</strong>
                 </div>
                 <div class="pull-right">
                     <a href="{{ url('Penjualan')}}" class="btn btn-secondary btn-sm">
@@ -48,25 +48,19 @@
                             @csrf
                             <div class="form-group">
                                 <label>Tanggal</label>
-                                <input type="text" name="tanggal_barang" class="form-control" value="{{ $data->tanggal_barang ?? 'nama'}}" autofocus required>
+                                <input type="date" name="tanggal_barang" class="form-control" value="{{ $data->tanggal_barang ?? 'nama'}}" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label >Nama Produk</label>
                                 <input type="text" class="form-control" readonly value="{{ $data->produk->nama_produk }}">
                                 <input type="hidden" name="produk_id" value="{{ $data->produk_id}}">
-                               
-                           
-                            <input type="hidden" name="stok" value="{{ $data->produk->stok }}">
                             </div> 
                             <div class="form-group">
                                 <label>Jumlah</label>
                                 <input type="text" name="jumlah" class="form-control" value="{{ $data->jumlah }}" autofocus required>
                                 <input type="hidden" name="old_jumlah" value="{{ $data->jumlah }}">
                             </div>
-                            
                             <button type="submit" class="btn btn-success">Save</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

@@ -23,6 +23,11 @@ class BarangmasukController extends Controller
     }
     public function addProcess(Request $request)
     {
+
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
         DB::table('barang_masuk')->insert([
             'tanggal_barang'=> $request->tanggal_barang,
             'produk_id' => $request->produk_id,
@@ -33,7 +38,7 @@ class BarangmasukController extends Controller
 
         DB::table('produk')->where('id', $request->produk_id)
         ->update([
-        'stok' => $request->stok + $request->jumlah,
+        'stok' => $item->stok + $request->jumlah,
         ]);
         
         return redirect('Barang-masuk/Barang-masuk')->with('status', 'Barang-masuk Berhasil ditambah!');
@@ -47,6 +52,11 @@ class BarangmasukController extends Controller
     }
     public function editProcess(Request $request, $id)
     {
+
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
         DB::table('barang_masuk')->where('id', $id)
             ->update([
                 'tanggal_barang'=> $request->tanggal_barang,
@@ -57,15 +67,20 @@ class BarangmasukController extends Controller
 
             DB::table('produk')->where('id', $request->produk_id)
             ->update([
-            'stok' => $request->stok + ($request->jumlah + $request->old_jumlah),
+            'stok' => $item->stok + ($request->jumlah - $request->old_jumlah),
             ]);
             return redirect('Barang-masuk/Barang-masuk')->with('status', 'Barang masuk Berhasil diedit!');
     }
     public function delete(Request $request,$id)
     {
+
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
         DB::table('produk')->where('id', $request->produk_id)
         ->update([
-        'stok' => $request->stok + $request->jumlah,
+        'stok' => $item->stok - $request->jumlah,
         ]);
         
         DB::table('barang_masuk')->where('id', $id)->delete();

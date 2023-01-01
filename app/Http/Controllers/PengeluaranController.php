@@ -26,16 +26,21 @@ class PengeluaranController extends Controller
     public function addProcess(Request $request)
     {
 
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
+        DB::table('produk')->where('id', $request->produk_id)
+        ->update([
+        'stok' => $item->stok - $request->jumlah,
+        ]);
+
         DB::table('pengeluaran')->insert([
             'tanggal' => $request->tanggal,
             'produk_id' => $request->produk_id,
-            'jumlah' => $request->jumlah,
+            'jumlah_keluar' => $request->jumlah,
         ]);
 
-        DB::table('produk')->where('id', $request->produk_id)
-            ->update([
-            'stok' => $request->stok - $request->jumlah,
-            ]);
         return redirect('pengeluaran')->with('status', 'Pengeluaran Berhasil ditambah!');
     }
 
@@ -50,24 +55,34 @@ class PengeluaranController extends Controller
     public function editProcess(Request $request, $id)
     {
 
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
         DB::table('pengeluaran')->where('id', $id)
             ->update([
             'tanggal' => $request->tanggal,
             'produk_id' => $request->produk_id,
-            'jumlah' => $request->jumlah,
+            'jumlah_keluar' => $request->jumlah,
             ]);
+
             DB::table('produk')->where('id', $request->produk_id)
             ->update([
-            'stok' => $request->stok - ($request->jumlah - $request->old_jumlah),
+            'stok' => $item->stok - ($request->jumlah - $request->old_jumlah),
             ]);
             return redirect('pengeluaran')->with('status', 'Pengeluaran Berhasil diedit!');
     }
 
     public function delete(Request $request,$id)
     {
+
+        $produk = produk::all($produk = ['*'])->where('id', $request->produk_id);
+
+        foreach ($produk as $item);
+
         DB::table('produk')->where('id', $request->produk_id)
             ->update([
-            'stok' => $request->stok + $request->jumlah,
+            'stok' => $item->stok + $request->jumlah,
             ]);
         DB::table('pengeluaran')->where('id', $id)->delete();
         return redirect('pengeluaran')->with('status', 'Pengeluaran Berhasil dihapus!');

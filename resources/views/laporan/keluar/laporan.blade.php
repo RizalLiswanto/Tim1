@@ -6,7 +6,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Rekap Laporan Kategori</h1>
+                <h1>Rekap Laporan Pengeluaran</h1>
             </div>
         </div>
     </div>
@@ -37,11 +37,11 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Rekap Laporan Kategori</strong>
+                    <strong>Rekap Laporan Pengeluaran</strong>
                 </div>
                 @if (auth()->user()->level == "1")
                 <div class="pull-right">
-                    <a href="{{ url('laporan-kategori/pdf') }}" target="_blank" class="btn btn-info btn-sm">
+                    <a href="{{ url('laporan-keluar/pdf') }}" target="_blank" class="btn btn-info btn-sm">
                         <i class="fa fa-file"></i> Export PDF
                     </a>
                 </div>
@@ -52,14 +52,28 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Tanggal Keluar</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Produk</th>
                             <th>Kategori</th>
+                            <th>Merk</th>
+                            <th>Harga Jual</th>
+                            <th>Jumlah</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item )
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->produk->kode }}</td>
+                            <td>{{ $item->produk->nama_produk }}</td>
+                            <td>{{ $item->produk->kategori->kategori }}</td>
+                            <td>{{ $item->produk->merk }}</td>
+                            <td>{{ $item->produk->harga_jual }}</td>
+                            <td>{{ $item->jumlah_keluar }}</td>
+                            <td>{{ $item->produk->harga_jual * $item->jumlah_keluar }}</td>
                     @endforeach
                     </tbody>
                 </table>    
