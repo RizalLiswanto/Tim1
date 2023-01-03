@@ -31,7 +31,7 @@
             
      
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+            <div class="card text-white bg-flat-color-1">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
                         <span class="count">{{ $pengguna }}</span>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+            <div class="card text-white bg-flat-color-3">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
                         <span class="count">{{ $produk }}</span>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+            <div class="card text-white bg-flat-color-4">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
                         <span class="count">{{ $barangmasuk }}</span>
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-lg-3">
-            <div class="card text-white bg-flat-color-2">
+            <div class="card text-white bg-flat-color-5">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
                         <span class="count">{{ $pengeluaran }}</span>
