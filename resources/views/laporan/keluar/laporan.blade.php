@@ -39,13 +39,11 @@
                 <div class="pull-left">
                     <strong>Rekap Laporan Pengeluaran</strong>
                 </div>
-                @if (auth()->user()->level == "1")
                 <div class="pull-right">
                     <a href="{{ url('laporan-keluar/pdf') }}" target="_blank" class="btn btn-info btn-sm">
                         <i class="fa fa-file"></i> Export PDF
                     </a>
                 </div>
-                @endif
             </div>
             <div class="card-body table-responsive">
                 <table class="table table-bordered">

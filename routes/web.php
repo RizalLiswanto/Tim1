@@ -33,6 +33,10 @@ Route::group(['middleware' => ['auth']], function (){
         Route::resource('admin',HomeController::class);
         Route::get('home', [HomeController::class, 'index'])->name('home');
     });
+    Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:2']], function (){
+        Route::resource('user',HomeController::class);
+        Route::get('home', [HomeController::class, 'index'])->name('home');
+    });
 });
 
 

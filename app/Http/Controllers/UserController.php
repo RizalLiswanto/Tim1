@@ -20,7 +20,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'username' => 'required|unique:tb_user',
-            'level' => 'required',
             'password' => 'required',
             'password_confirm' => 'required|same:password',
         ]);
@@ -28,7 +27,6 @@ class UserController extends Controller
         $user = new User([
             'name' => $request->name,
             'username' => $request->username,
-            'level' => $request->level,
             'password' => Hash::make($request->password),
         ]);
         $user->save();
@@ -56,11 +54,8 @@ class UserController extends Controller
                 return redirect()->intended('admin');
             }
             else if ($user->level == '2') {
-                return redirect()->intended('guru');
+                return redirect()->intended('user');
             }   
-            else if ($user->level == '3') {
-                return redirect()->intended('siswa');
-            }
             return redirect()->intended('/');
         }
 

@@ -29,7 +29,7 @@
     <div class="animated fadeIn">
        
             
-     
+        @if (auth()->user()->level == "1")
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-1">
                 <div class="card-body pb-0">
@@ -44,14 +44,19 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="col-sm-6 col-lg-3">
             <div class="card text-white bg-flat-color-2">
                 <div class="card-body pb-0">
                     <h4 class="mb-0">
                         <span class="count">{{ $kategori }}</span>
                     </h4>
+                    @if (auth()->user()->level == "1")
                     <a class="text-light"  href="/kategori/kategori">Data Kategori</a>
-
+                    @endif
+                    @if (auth()->user()->level == "2")
+                    <p class="text-light" >Data Kategori</p>
+                    @endif
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
                     </div>
@@ -65,7 +70,12 @@
                     <h4 class="mb-0">
                         <span class="count">{{ $produk }}</span>
                     </h4>
+                    @if (auth()->user()->level == "1")
                     <a class="text-light" href="/produk/produk">Data Produk </a>
+                    @endif
+                    @if (auth()->user()->level == "2")
+                    <p class="text-light" >Data Produk </p>
+                    @endif
 
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
@@ -80,8 +90,12 @@
                     <h4 class="mb-0">
                         <span class="count">{{ $barangmasuk }}</span>
                     </h4>
+                    @if (auth()->user()->level == "1")
                     <a class="text-light" href="/Barang-masuk/Barang-masuk"> Data Barang masuk</a> 
-
+                    @endif
+                    @if (auth()->user()->level == "2")
+                    <p class="text-light" > Data Barang masuk</p>
+                    @endif
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
                     </div>
@@ -95,8 +109,12 @@
                     <h4 class="mb-0">
                         <span class="count">{{ $pengeluaran }}</span>
                     </h4>
+                    @if (auth()->user()->level == "1")
                     <a class="text-light" href="/pengeluaran"> Pengeluaran</a>
-
+                    @endif
+                    @if (auth()->user()->level == "2")
+                    <p class="text-light" > Pengeluaran</p>
+                    @endif
                     <div class="chart-wrapper px-0" style="height:70px;" height="70">
                         <canvas id="widgetChart2"></canvas>
                     </div>
