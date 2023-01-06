@@ -17,7 +17,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-      $pengguna = User::where('level','1')->count();
+      $pengguna = User::count();
       $produk = produk::count();
       $kategori = kategori::count();
       $barangmasuk = Barangmasuk::count();

@@ -65,14 +65,29 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{ url('home')}}">POS Sederhana</a>
-                <a class="navbar-brand hidden" href=""><i class="menu-icon fa fa-home"></i></a>
+                @if (auth()->user()->level == "1")
+                <a class="navbar-brand" href="{{ ('admin')}}">POS Sederhana</a>
+                @endif
+                @if (auth()->user()->level == "2")
+                <a class="navbar-brand" href="{{ ('user')}}">POS Sederhana</a>
+                @endif
+                @if (auth()->user()->level == "1")
+                <a class="navbar-brand hidden" href="{{ ('admin') }}"><i class="menu-icon fa fa-home"></i></a>
+                @endif
+                @if (auth()->user()->level == "2")
+                <a class="navbar-brand hidden" href="{{ ('user') }}"><i class="menu-icon fa fa-home"></i></a>
+                @endif
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{{ url('home')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        @if (auth()->user()->level == "1")
+                        <a href="{{ ('admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        @endif
+                        @if (auth()->user()->level == "2")
+                        <a href="{{ ('user')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        @endif
                     </li>
                     @if (auth()->user()->level == "1")
                     <li class="active">

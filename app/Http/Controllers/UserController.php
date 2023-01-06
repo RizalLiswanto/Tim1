@@ -31,7 +31,7 @@ class UserController extends Controller
         ]);
         $user->save();
 
-        return redirect()->route('login')->with('success', 'Registration success. Please login!');
+        return redirect()->route('login')->with('success', 'Registrasi success. Silahkan login!');
     }
 
 
@@ -62,7 +62,7 @@ class UserController extends Controller
 
 
         return back()->withErrors([
-            'password' => 'Wrong username or password',
+            'password' => 'Username atau password salah',
         ]);
     }
 
