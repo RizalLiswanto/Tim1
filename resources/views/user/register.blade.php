@@ -94,10 +94,6 @@
                             <input class="form-control" type="username" name="username" value="{{ old('username') }}" />
                          </div>
                          <div class="form-group">
-                            <label>level <span class="text-danger">*</span></label>
-                            <input class="form-control" type="text" name="level" value="{{ old('level') }}" />
-                         </div>
-                         <div class="form-group">
                             <label>Password <span class="text-danger">*</span></label>
                             <input class="form-control" type="password" name="password" />
                          </div>
