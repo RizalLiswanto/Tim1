@@ -57,7 +57,7 @@
                             </div> 
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control" value="{{ $pengeluaran->jumlah_keluar }}" autofocus required>
+                                <input type="number" name="jumlah" class="form-control" value="{{ $pengeluaran->jumlah_keluar }}" autofocus required>
                                 <input type="hidden" name="old_jumlah" value="{{ $pengeluaran->jumlah_keluar }}">
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>

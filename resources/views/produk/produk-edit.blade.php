@@ -70,15 +70,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Harga Jual</label>
-                                <input type="text" name="harga_jual" value="{{ $data->harga_jual ?? 'harga_jual'}}" class="form-control" autofocus required>
+                                <input type="number" name="harga_jual" value="{{ $data->harga_jual ?? 'harga_jual'}}" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Harga Beli</label>
-                                <input type="text" name="harga_beli" value="{{ $data->harga_beli ?? 'harga_beli'}}" class="form-control" autofocus required>
+                                <input type="number" name="harga_beli" value="{{ $data->harga_beli ?? 'harga_beli'}}" class="form-control" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Stock</label>
-                                <input type="text" name="stok" value="{{ $data->stok ?? 'stok'}}" class="form-control" autofocus required>
+                                <input type="number" name="stok" value="{{ $data->stok ?? 'stok'}}" class="form-control" autofocus required>
                             </div>
                             
                             <button type="submit" class="btn btn-success">Save</button>

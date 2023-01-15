@@ -66,7 +66,9 @@ class ProdukController extends Controller
 
     public function delete($id)
     {
+        DB::table('barang_masuk')->where('produk_id', $id)->delete();
+        DB::table('pengeluaran')->where('produk_id', $id)->delete();
         DB::table('produk')->where('id', $id)->delete();
-        return redirect('produk/produk')->with('status', 'Produk Berhasil dihapus!');
+        return redirect('produk/produk')->with('status', 'Produk beserta Barang Masuk dan Pengeluaran yang bersangkutan Berhasil dihapus!');
     }
 }
