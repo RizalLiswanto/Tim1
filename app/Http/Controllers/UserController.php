@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+       
+        return view('user/notfound');
+    }
+
     public function register()
     {
         $data['title'] = 'Register';

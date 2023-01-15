@@ -35,7 +35,7 @@
                     <strong>Edit Barang Masuk</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('Penjualan')}}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('Barang-masuk/Barang-masuk')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                             </div> 
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="text" name="jumlah" class="form-control" value="{{ $data->jumlah }}" autofocus required>
+                                <input type="number" name="jumlah" class="form-control" value="{{ $data->jumlah }}" autofocus required>
                                 <input type="hidden" name="old_jumlah" value="{{ $data->jumlah }}">
                             </div>
                             <button type="submit" class="btn btn-success">Save</button>

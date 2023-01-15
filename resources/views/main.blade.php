@@ -66,29 +66,26 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 @if (auth()->user()->level == "1")
-                <a class="navbar-brand" href="{{ ('admin')}}">POS Sederhana</a>
+                <a class="navbar-brand" href="{{ url('admin')}}">POS Sederhana</a>
                 @endif
                 @if (auth()->user()->level == "2")
-                <a class="navbar-brand" href="{{ ('user')}}">POS Sederhana</a>
+                <a class="navbar-brand" href="{{ url('user')}}">POS Sederhana</a>
                 @endif
-                @if (auth()->user()->level == "1")
-                <a class="navbar-brand hidden" href="{{ ('admin') }}"><i class="menu-icon fa fa-home"></i></a>
-                @endif
-                @if (auth()->user()->level == "2")
-                <a class="navbar-brand hidden" href="{{ ('user') }}"><i class="menu-icon fa fa-home"></i></a>
-                @endif
+                <a class="navbar-brand hidden" href=""><i class="menu-icon fa fa-home"></i></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    @if (auth()->user()->level == "1")
                     <li class="active">
-                        @if (auth()->user()->level == "1")
-                        <a href="{{ ('admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                        @endif
-                        @if (auth()->user()->level == "2")
-                        <a href="{{ ('user')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                        @endif
+                        <a href="{{ url('admin')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
+                    @endif
+                    @if (auth()->user()->level == "2")
+                    <li class="active">
+                        <a href="{{ url('user')}}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                    </li>
+                    @endif
                     @if (auth()->user()->level == "1")
                     <li class="active">
                         <a href="{{('/kategori/kategori')}}"> <i class="menu-icon fa fa-tasks"></i>Kategori </a>
@@ -106,9 +103,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file"></i>Rekap Laporan</a>
                         <ul class="sub-menu children dropdown-menu">
-                            @if (auth()->user()->level == "1")
                             <li><i class="fa fa-file"></i><a href="{{ url('laporan-kategori') }}">Rekap Kategori</a></li>
-                            @endif
                             <li><i class="fa fa-file"></i><a href="{{ url('laporan-produk') }}">Rekap Product</a></li>
                             <li><i class="fa fa-file"></i><a href="{{ url('laporan-barang-masuk') }}">Rekap Laporan Barang Masuk</a></li>
                             <li><i class="fa fa-file"></i><a href="{{ url( 'laporan-pengeluaran' ) }}">Rekap Laporan Pengeluaran</a></li>

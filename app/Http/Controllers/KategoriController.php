@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategori;
+use App\Models\produk;
+use App\Models\Barangmasuk;
+use App\Models\pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,7 +46,17 @@ class KategoriController extends Controller
 
     public function delete($id)
     {
+        $pro = produk::count();
+        if ($pro >= 1) {
+        $produk = produk::all($produk = ['*'])->where('kategori_id', $id);
+        foreach ($produk as $pr);
+
+        DB::table('barang_masuk')->where('produk_id', $pr->id)->delete();
+        DB::table('pengeluaran')->where('produk_id', $pr->id)->delete();
+        DB::table('produk')->where('kategori_id', $id)->delete();
+        }
+       
         DB::table('kategori')->where('id', $id)->delete();
-        return redirect('kategori/kategori')->with('status', 'Kategori Berhasil dihapus!');
+        return redirect('kategori/kategori')->with('status', 'Kategori beserta Produk, Barang Masuk dan Pengeluaran yang bersangkutan Berhasil dihapus!');
     }
 }

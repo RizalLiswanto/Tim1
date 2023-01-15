@@ -33,9 +33,10 @@
             <td>{{ $item->produk->nama_produk }}</td>
             <td>{{ $item->produk->kategori->kategori }}</td>
             <td>{{ $item->produk->merk }}</td>
-            <td>{{ $item->produk->harga_jual }}</td>
+            <td>{{ $item->produk->formatRupiah('harga_jual') }}</td>
             <td>{{ $item->jumlah_keluar }}</td>
-            <td>{{ $item->produk->harga_jual * $item->jumlah_keluar }}</td>
+            <input type="hidden" value="{{ $total = $item->produk->harga_jual * $item->jumlah_keluar }}">
+            <td>{{ formatRupiah($total) }}</td>
     @endforeach
     </tbody> 
     </table>

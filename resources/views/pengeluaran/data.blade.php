@@ -79,9 +79,10 @@
                                 <td>{{ $item->produk->kategori->kategori }}</td>
                                 <td>{{ $item->produk->nama_produk }}</td>
                                 <td>{{ $item->produk->merk }}</td>
-                                <td>{{ $item->produk->harga_jual }}</td>
+                                <td>{{ $item->produk->formatRupiah('harga_jual') }}</td>
                                 <td>{{ $item->jumlah_keluar }}</td>
-                                <td>{{ $item->jumlah_keluar * $item->produk->harga_jual }}</td>
+                                <input type="hidden" value="{{ $total = ($item->jumlah_keluar * $item->produk->harga_jual) }}">
+                                <td>{{ formatRupiah($total) }}</td>
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
                                     <a href="{{ url('pengeluaran/edit', $item->id)}}" class="btn btn-primary btn-sm">edit</a>

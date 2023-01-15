@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasFormatRupiah;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Barangmasuk extends Model
 {
     use HasFactory;
+    use HasFormatRupiah;
     protected $table = 'barang_masuk';
     protected $primaryKey = "id";
     protected $fillable = [
