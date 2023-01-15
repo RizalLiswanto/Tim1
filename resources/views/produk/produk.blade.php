@@ -86,8 +86,8 @@
                                 <td>{{ $item->kode }}</td>
                                 <td>{{ $item->kategori->kategori }}</td>
                                 <td>{{ $item->merk }}</td>
-                                <td>{{ $item->harga_jual }}</td>
-                                <td>{{ $item->harga_beli}}</td>
+                                <td>{{ $item->formatRupiah('harga_jual') }}</td>
+                                <td>{{ $item->formatRupiah('harga_beli')}}</td>
                                 <td>{{ $item->stok }}</td>
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">

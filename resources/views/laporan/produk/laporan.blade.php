@@ -67,8 +67,8 @@
                             <td>{{ $item->kode }}</td>
                             <td>{{ $item->kategori->kategori }}</td>
                             <td>{{ $item->merk }}</td>
-                            <td>{{ $item->harga_beli }}</td>
-                            <td>{{ $item->harga_jual }}</td>
+                            <td>{{ $item->formatRupiah('harga_beli') }}</td>
+                            <td>{{ $item->formatRupiah('harga_jual') }}</td>
                             <td>{{ $item->stok }}</td>
                     @endforeach
                     </tbody>

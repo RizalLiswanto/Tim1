@@ -35,7 +35,7 @@
                     <strong>Tambah Barang masuk</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('Barang-masuks')}}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('Barang-masuk/Barang-masuk')}}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
