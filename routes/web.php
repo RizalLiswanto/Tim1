@@ -3,7 +3,6 @@
 use App\Http\Controllers\BarangmasukController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
@@ -59,6 +58,14 @@ Route::post('Barang-masuks', [BarangmasukController::class,'addProcess']);
 Route::get('Barang-masuk/Barang-masuk-edit/{id}',[BarangmasukController::class,'edit']);
 Route::patch('Barang-masuk/{id}', [BarangmasukController::class,'editProcess']);
 Route::delete('Barang-masuk/{id}',[BarangmasukController::class,'delete']);
+
+Route::get('user_add', [UserController::class, 'user_add']);
+Route::post('add_ad_process', [UserController::class, 'user_add_process']);
+Route::get('users', [UserController::class, 'user_ad']);
+Route::get('edit_admin/{user_id}', [UserController::class, 'edit_ad']);
+Route::patch('edith_ad/{user_id}', [UserController::class, 'edit_ad_process']);
+Route::delete('users/{user_id}', [UserController::class, 'delete']);
+
     });
     Route::group(['middleware' => ['\App\Http\Middleware\cekUserLogin:2']], function (){
         Route::resource('user',HomeController::class);
@@ -73,9 +80,10 @@ Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'login_action'])->name('login.action');
 Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
+Route::get('edit', [UserController::class, 'edit']);
+Route::patch('edith/{user_id}', [UserController::class, 'edit_action']);
+Route::get('pw', [UserController::class, 'pw']);
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
-
-
 
 Route::get('laporan-kategori', [LaporanController::class, 'index'])->name('laporan.index');
 Route::get('laporan-kategori/pdf', [LaporanController::class, 'exportPDF'])->name('laporan.export');

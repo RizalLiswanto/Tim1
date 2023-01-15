@@ -32,7 +32,6 @@ class ProdukController extends Controller
                 'harga_jual'=>$request->harga_jual,
                 'harga_beli'=>$request->harga_beli,
                 'stok'=>$request->stok,
-              
             ]);
            
         } catch (\Throwable $th) {
@@ -50,6 +49,16 @@ class ProdukController extends Controller
     }
     public function editProcess(Request $request, $id)
     {
+        try {
+            $request->validate([
+                'nama_produk' =>'required',
+                'kode'=> 'required',
+                'kategori_id'=> 'required',
+                'merk'=> 'required',
+                'harga_jual'=> 'required',
+                'harga_beli'=> 'required',
+                'stok'=> 'required',
+        ]);
         DB::table('produk')->where('id', $id)
             ->update([
                 'nama_produk' => $request->nama_produk,
@@ -61,6 +70,10 @@ class ProdukController extends Controller
                 'stok'=>$request->stok,
                 
             ]);
+        } catch (\Throwable $th) {
+            return redirect('produk/produk')->with('error', 'kode barang sudah ada!');
+        }
+        
             return redirect('produk/produk')->with('status', 'Produk Berhasil diedit!');
     }
 
