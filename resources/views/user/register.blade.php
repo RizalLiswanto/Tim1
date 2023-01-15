@@ -79,7 +79,11 @@
                 </div>
                 @if($errors->any())
                 @foreach($errors->all() as $err)
-                <p class="alert alert-danger">{{ $err }}</p>
+                <p class="alert alert-danger">{{ $err }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
                 @endforeach
                 @endif
                 <div class="login-form">
@@ -106,7 +110,7 @@
                                       
                                     </div>
                                     <div class="register-link m-t-15 text-center">
-                                        <p>Sudah punya Akun? <a  href="{{ route('register') }}">Ayo Login sekarang!</a></p>
+                                        <p>Sudah punya Akun? <a  href="{{ route('login') }}">Ayo Login sekarang!</a></p>
                                     </div>
                     </form>
                 </div>

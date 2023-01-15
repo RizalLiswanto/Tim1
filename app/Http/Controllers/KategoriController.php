@@ -23,6 +23,10 @@ class KategoriController extends Controller
     }
     public function addProcess(Request $request)
     {
+        $request->validate([
+            'kategori' => 'required|unique:kategori'
+        ]);
+
         DB::table('kategori')->insert([
             'kategori' => $request->kategori
           
@@ -33,10 +37,12 @@ class KategoriController extends Controller
     {
         $kategori = DB::table('kategori')->where('id', $id)->first();
         return view('kategori/kategori-edit', compact('kategori'));
-    
     }
     public function editProcess(Request $request, $id)
     {
+        $request->validate([
+            'kategori' => 'required|unique:kategori'
+        ]);
         DB::table('kategori')->where('id', $id)
             ->update([
                 'kategori' => $request->kategori
