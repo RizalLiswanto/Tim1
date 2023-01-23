@@ -80,29 +80,50 @@
                                 <td>{{ $item->produk->merk }}</td>
                                 <td>{{ $item->produk->formatRupiah('harga_beli')}}</td>
                                 <td>{{ $item->jumlah }}</td>
-                                <input type="hidden" value="{{ $total = $item->jumlah * $item->produk->harga_beli }}">
-                                <td>{{ formatRupiah($total) }}</td>
+                                <td>{{ formatRupiah($item->total) }}</td>
                               
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
                                     <a href="{{ url('Barang-masuk/Barang-masuk-edit', $item->id)}}" class="btn btn-primary btn-sm">edit</a>
-                                    <form action="{{ url('Barang-masuk', $item->id)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
-                                        @method('delete')
-                                        @csrf
-                                        <input type="hidden" name="produk_id" value="{{ $item->produk_id }}">
-                                        <input type="hidden" name="jumlah" value="{{ $item->jumlah }}">
-                                        <button class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#mediumModal">
+                                        <i class="fa fa-trash"></i> Hapus
+                                    </button>
                                 </td>
                                 @endif
                             </tr>
                         @endforeach
                     </tbody>
                 </table>    
+                {{ $data->links() }}
             </div>
         </div>
     </div>
         
 </div> <!-- .content -->
-
+@if ($count > 0)
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Yakin Ingin Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+                <form action="{{ url('Barang-masuk', $item->id) }}" method="POST" class="d-inline" >
+                    @method('delete')
+                    @csrf
+                    <input type="hidden" name="produk_id" value="{{ $item->produk_id }}">
+                    <input type="hidden" name="jumlah" value="{{ $item->jumlah }}">
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" ><i class="fa fa-trash"></i> Hapus data</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+@endif
 @endsection

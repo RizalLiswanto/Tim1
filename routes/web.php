@@ -85,11 +85,9 @@ Route::patch('edith/{user_id}', [UserController::class, 'edit_action']);
 Route::get('pw', [UserController::class, 'pw']);
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('laporan-kategori', [LaporanController::class, 'index'])->name('laporan.index');
-Route::get('laporan-kategori/pdf', [LaporanController::class, 'exportPDF'])->name('laporan.export');
 Route::get('laporan-produk', [LaporanController::class, 'produk_view']);
 Route::get('laporan-produk/pdf', [LaporanController::class, 'produkPDF']);
 Route::get('laporan-barang-masuk', [LaporanController::class, 'masuk_view']);
-Route::get('laporan-masuk/pdf', [LaporanController::class, 'masukPDF']);
+Route::post('laporan-masuk', [LaporanController::class, 'masukPDF']);
 Route::get('laporan-pengeluaran', [LaporanController::class, 'pengeluaran_view']);
-Route::get('laporan-keluar/pdf', [LaporanController::class, 'keluarPDF']);
+Route::post('laporan-keluar', [LaporanController::class, 'keluarPDF']);

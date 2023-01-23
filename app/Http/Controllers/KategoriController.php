@@ -13,8 +13,9 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $data = kategori::all(); 
-        return view('kategori/kategori',['data'=>$data]);
+        $data = kategori::paginate(10);
+        $count = kategori::paginate(10)->count();
+        return view('kategori/kategori',['data'=>$data],compact('count'));
     }
 
     public function add()
@@ -55,14 +56,15 @@ class KategoriController extends Controller
         $pro = produk::count();
         if ($pro >= 1) {
         $produk = produk::all($produk = ['*'])->where('kategori_id', $id);
-        foreach ($produk as $pr);
-
-        DB::table('barang_masuk')->where('produk_id', $pr->id)->delete();
-        DB::table('pengeluaran')->where('produk_id', $pr->id)->delete();
-        DB::table('produk')->where('kategori_id', $id)->delete();
+        foreach ($produk as $pr){
+            DB::table('barang_masuk')->where('produk_id', $pr->id)->delete();
+            DB::table('pengeluaran')->where('produk_id', $pr->id)->delete();
+            DB::table('produk')->where('kategori_id', $id)->delete();
+            }
+           
+            
         }
-       
         DB::table('kategori')->where('id', $id)->delete();
-        return redirect('kategori/kategori')->with('status', 'Kategori beserta Produk, Barang Masuk dan Pengeluaran yang bersangkutan Berhasil dihapus!');
+            return redirect('kategori/kategori')->with('status', 'Kategori beserta Produk, Barang Masuk dan Pengeluaran yang bersangkutan Berhasil dihapus!');
     }
 }

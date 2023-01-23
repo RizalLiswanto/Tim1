@@ -74,11 +74,9 @@
                                 @if (auth()->user()->level == "1")
                                 <td class="text-center">
                                     <a href="{{ url ('edit_admin', $item->user_id) }}" class="btn btn-primary btn-sm">edit</a>
-                                    <form action="{{ url('users', $item->user_id)}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#mediumModal">
+                                        <i class="fa fa-trash"></i> Hapus
+                                    </button>
                                 </td>
                                 @endif
                             </tr>
@@ -90,5 +88,27 @@
     </div>
         
 </div> <!-- .content -->
-
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Yakin Ingin Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+                <form action="{{ url('users', $item->user_id) }}" method="POST" class="d-inline" >
+                    @method('delete')
+                    @csrf
+                    
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" ><i class="fa fa-trash"></i> Hapus data</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
 @endsection

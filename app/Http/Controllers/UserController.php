@@ -134,17 +134,22 @@ class UserController extends Controller
     }
 
     public function edit_ad_process(Request $request, $user_id){
-        $request->validate([
-            'name' => 'required',
-            'username' => 'required|unique:tb_user',
-            'level' => 'required',
-    ]);
-        DB::table('tb_user')->where('user_id', $user_id)
-        ->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'level' => $request->level,
+        try {
+            $request->validate([
+                'name' => 'required',
+                'username' => 'required',
+                'level' => 'required',
         ]);
+            DB::table('tb_user')->where('user_id', $user_id)
+            ->update([
+                'name' => $request->name,
+                'username' => $request->username,
+                'level' => $request->level,
+            ]);
+        } catch (\Throwable $th) {
+            return redirect('edit_admin/'.$user_id)->with('error', 'Username sudah ada!');
+        }
+        
         return redirect('users')->with('status', 'User Berhasil diedit!');
     }
 

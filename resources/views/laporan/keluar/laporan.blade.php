@@ -40,9 +40,10 @@
                     <strong>Rekap Laporan Pengeluaran</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('laporan-keluar/pdf') }}" target="_blank" class="btn btn-info btn-sm">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#mediumModal">
                         <i class="fa fa-file"></i> Export PDF
-                    </a>
+                    </button>
+                    
                 </div>
             </div>
             <div class="card-body table-responsive">
@@ -76,10 +77,37 @@
                     @endforeach
                     </tbody>
                 </table>    
+                {{ $data->links() }}
             </div>
         </div>
     </div>
         
 </div> <!-- .content -->
-
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Masukkan Tanggal yang dicari</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('laporan-keluar') }}" method="POST" target="_blank">
+                    @csrf
+                    <div class="form-group">
+                        <label >Tanggal Awal</label>
+                        <input class="form-control" type="date" name="awal" required>
+                        <label >Tanggal Akhir</label>
+                        <input class="form-control" type="date" name="akhir" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" ><i class="fa fa-file"></i> Export PDF</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
 @endsection

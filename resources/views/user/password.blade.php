@@ -30,7 +30,10 @@
                                     <input type="text"  class="form-control" readonly value="{{ Auth::user()->username }}" >
                                 </div>
                                 <a href="{{ 'edit' }}" class="btn btn-primary">Edit Nama / Username</a>
-                                <a href="{{ 'pw' }}" class="btn btn-primary">Edit Password</a>
+                                <div class="mt-4">
+                                    <a href="{{ 'pw' }}" class="btn btn-primary">Edit Password</a>
+                                </div>
+                                
                         </div>
                     </div>
                 </div>

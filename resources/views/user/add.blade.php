@@ -32,7 +32,11 @@
                                  </div>
                                  <div class="form-group">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="password" name="password" />
+                                    <input class="form-control" type="password" name="password" id="id_password"/>
+                                    <i class="fa fa-eye" id="togglePassword" style="float: right;
+                    margin-top: -25px;
+                    position: relative;
+                    z-index: 2;"></i>
                                  </div>
                                  @if (auth()->user()->level == "1")
                                 <div class="form-group">
@@ -52,4 +56,16 @@
             </div>
         </div>
     </div>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+      
+        togglePassword.addEventListener('click', function (e) {
+          // toggle the type attribute
+          const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+          password.setAttribute('type', type);
+          // toggle the eye slash icon
+          this.classList.toggle('fa-eye-slash');
+      });
+      </script>
 @endsection

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('style/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{ asset('style/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{ asset('style/vendors/jqvmap/dist/jqvmap.min.css')}}">
-
+    @yield('head')
 
     <link rel="stylesheet" href="{{ asset('style/assets/css/style.css')}}">
 
@@ -102,7 +102,6 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-file" style="color: white;"></i>Rekap Laporan</a>
                         <ul class="sub-menu children dropdown-menu" style="background: cornflowerBlue">
-                            <li><i class="fa fa-file"></i><a href="{{ url('laporan-kategori') }}">Rekap Kategori</a></li>
                             <li><i class="fa fa-file"></i><a href="{{ url('laporan-produk') }}">Rekap Product</a></li>
                             <li><i class="fa fa-file"></i><a href="{{ url('laporan-barang-masuk') }}">Rekap Laporan Barang Masuk</a></li>
                             <li><i class="fa fa-file"></i><a href="{{ url( 'laporan-pengeluaran' ) }}">Rekap Laporan Pengeluaran</a></li>
