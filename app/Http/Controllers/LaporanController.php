@@ -61,6 +61,7 @@ class LaporanController extends Controller
     public function keluarPDF(Request $request)
     {
         $data = Pengeluaran::whereBetween('tanggal', [$request->awal , $request->akhir])->get();
+        return dd($data);
         $awal = $request->awal;
         $akhir = $request->akhir;
         $grandtotal = $data->sum('total');

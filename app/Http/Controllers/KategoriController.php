@@ -13,8 +13,8 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $data = kategori::paginate(10);
-        $count = kategori::paginate(10)->count();
+        $data = kategori::all();
+        $count = $data->count();
         return view('kategori/kategori',['data'=>$data],compact('count'));
     }
 
